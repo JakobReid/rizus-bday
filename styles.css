@@ -9,13 +9,12 @@ body, html {
 }
 
 header {
-    background-image: url('./chickenllamacactus-pixelated-banner.jpg');
+    background-image: url('./chickenllamacactus-pixelated-banner.png');
 
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     position: relative;
-
-    height: 50%;
+    height: 100%;
 }
 
 .hero-text {
@@ -28,7 +27,5 @@ header {
     background: var(--clc-white);
     padding: 5px;
     border-radius: 5px;
-
-img {
-    max-width: 20rem;
+    border: solid 1px #ff5e38;
 }
