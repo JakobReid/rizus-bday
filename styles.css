@@ -1,0 +1,9 @@
+:root {
+    --clc-green: #73ac52;
+    --clc-red: #ff5e38;
+    --clc-white: #fff0e9;
+}
+
+img {
+    max-width: 20rem;
+}
