@@ -4,34 +4,80 @@
     --clc-white: #fff0e9;
 }
 
+
 body, html {
     height: 100%;
     background-color: var(--clc-green) !important
 }
+
 
 img {
     height: inherit;
     width: inherit;
 }
 
-.header {
+
+.btn-red {
+    color: var(--clc-white) !important;
+    background-color: var(--clc-red) !important;
+    width: fit-content;
+    border-radius: 0 !important;
+    border: solid 0.25rem white !important;
+    margin-top: 240px;
+}
+
+
+.btn-red:hover {
+    color: var(--clc-white) !important;
+    background-color: #cc4c2f !important;
+}
+
+
+.title-container {
+    padding-top: 20vh;
+}
+
+
+.title {
     font-size: 6.5rem;
 }
 
-.sub-header {
+
+.subtitle {
     font-size: 4rem;
+}
+
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+
+.card {
+    width: 16rem;
+    margin: 1rem;
+    background: none !important;
+    border-radius: 0 !important;
+    border: 1rem solid var(--clc-white) !important;
+}
+
+
+.card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .hero-text {
     font-family: fantasy;
     text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: var(--clc-white);
 }
+
 
 .chickenllamacactus {
     width: inherit;
@@ -45,10 +91,12 @@ img {
     justify-content: center;
 }
 
+
 .nav-link {
     font-size: 24px !important;
     color: var(--clc-white) !important;
 }
+
 
 .nav-link:hover {
     background-color: var(--clc-red) !important;
