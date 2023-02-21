@@ -7,7 +7,8 @@
 
 body, html {
     height: 100%;
-    background-color: var(--clc-green) !important
+    background-color: var(--clc-green) !important;
+    font-family: fantasy !important;
 }
 
 
@@ -20,10 +21,11 @@ img {
 .btn-red {
     color: var(--clc-white) !important;
     background-color: var(--clc-red) !important;
-    width: fit-content;
     border-radius: 0 !important;
     border: solid 0.25rem white !important;
+    font-size: 24px !important;
     margin-top: 240px;
+    width: fit-content;
 }
 
 
@@ -73,7 +75,6 @@ img {
 
 
 .hero-text {
-    font-family: fantasy;
     text-align: center;
     color: var(--clc-white);
 }
