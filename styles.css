@@ -2,7 +2,7 @@
     --clc-green: #73ac52;
     --clc-red: #ff5e38;
     --clc-white: #fbfcff;
-    --clc-black: #22333B;
+    --clc-black: #333333;
 }
 
 
@@ -18,7 +18,6 @@
 
 
 body, html {
-    height: 100%;
     background-color: var(--clc-green);
     color: var(--clc-white);
 }
@@ -27,9 +26,11 @@ body, html {
 main {
     display: flex;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 9.625rem;
 }
 
 
@@ -136,14 +137,14 @@ main {
 }
 
 .clc-form .form-control {
-    background-color: transparent;
+    background-color: var(--clc-black);
     border: 0.125rem solid var(--clc-white);
     color: var(--clc-white);
     transition: ease 200ms;
 }
 
 .clc-form .form-control:focus {
-    border: 0.125rem solid #BCD7AC;
+    border: 0.125rem solid var(--clc-black);
     box-shadow: none;
     outline: none;
     transition: ease 200ms;
@@ -155,7 +156,8 @@ main {
 }
 
 .navbar {
-    padding: 2rem;
+    background-color: var(--clc-green);
+    padding: 1rem 0 1rem 0;
 }
 
 .navbar a {
@@ -166,6 +168,7 @@ main {
 .navbar-toggler {
     border: none;
     color: var(--clc-white);
+    font-size: 2.5rem;
 }
 
 
@@ -173,7 +176,7 @@ main {
     border-radius: 1.5rem;
     border: solid 0.125rem var(--clc-white);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    width: 5rem;
+    width: 7rem;
 }
 
 
@@ -217,3 +220,12 @@ main {
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15);
 }
 
+
+.clc-badge {
+    background: var(--clc-black);
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+}
