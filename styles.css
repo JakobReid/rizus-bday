@@ -1,7 +1,7 @@
 :root {
     --clc-green: #73ac52;
     --clc-red: #ff5e38;
-    --clc-white: #fff0e9;
+    --clc-white: #fbfcff;
     --clc-black: #22333B;
 }
 
@@ -26,15 +26,13 @@ img {
     width: inherit;
 }
 
+.btn {
+    border: solid 0.25rem white !important;
+}
 
 .btn-red {
     color: var(--clc-white) !important;
     background-color: var(--clc-red) !important;
-    border-radius: 0 !important;
-    border: solid 0.25rem white !important;
-    font-size: 24px !important;
-    margin-top: 240px;
-    width: fit-content;
 }
 
 
@@ -114,12 +112,11 @@ img {
 
 
 .clc-form {
-    background-color: var(--clc-black);
     border-radius: 1rem;
     color: var(--clc-white);
     padding: 2.5rem;
     max-width: 37.5rem;
-    box-shadow: 0 4px 10px 4px var(--clc-black);
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 .clc-form .clc-form-header {
@@ -137,12 +134,17 @@ img {
     margin-top: 1rem;
 }
 
+.clc-form button[type="submit"] {
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .text-clc-red {
     color: var(--clc-red);
 }
 
 
-.form-control {
-    background-color: #22333B !important;
+.clc-form .form-control {
+    background-color: transparent !important;
     color: var(--clc-white) !important;
 }
