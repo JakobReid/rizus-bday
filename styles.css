@@ -139,12 +139,25 @@ img {
     margin-top: 1rem;
 }
 
-.text-clc-red {
-    color: var(--clc-red);
+.clc-form label {
+    font-weight: bold;
 }
-
 
 .clc-form .form-control {
     background-color: transparent !important;
+    border: 0.125rem solid var(--clc-white);
     color: var(--clc-white) !important;
+    transition: ease 200ms;
+}
+
+.clc-form .form-control:focus {
+    border: 0.125rem solid #BCD7AC;
+    box-shadow: none;
+    outline: none;
+    transition: ease 200ms;
+}
+
+
+.text-clc-red {
+    color: var(--clc-red);
 }
