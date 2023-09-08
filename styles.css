@@ -2,9 +2,19 @@
     --clc-green: #73ac52;
     --clc-red: #ff5e38;
     --clc-white: #fbfcff;
-    --clc-blue: 8bb4c8;
     --clc-black: #22333B;
 }
+
+
+@media only screen and (max-width: 576px) {
+    .offcanvas {
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/images/chickenllamacactus.jpg);
+        background-size: cover;
+        background-position: center;
+        box-shadow: rgba(0, 0, 0, 0.35) 0 0px 10px 1px;
+        font-size: 1.5rem;
+    }
+  }
 
 
 body, html {
@@ -12,6 +22,7 @@ body, html {
     background-color: var(--clc-green);
     color: var(--clc-white);
 }
+
 
 main {
     display: flex;
@@ -21,11 +32,6 @@ main {
     flex-wrap: wrap;
 }
 
-
-img {
-    height: inherit;
-    width: inherit;
-}
 
 .btn {
     border: solid 0.25rem var(--clc-white);
@@ -40,19 +46,8 @@ img {
 
 .btn-red:hover {
     color: var(--clc-white);
-    background-color: #cc4c2f;
-}
-
-
-.btn-red {
-    color: var(--clc-white);
-    background-color: var(--clc-red);
-}
-
-
-.btn-red:hover {
-    color: var(--clc-white);
-    background-color: #cc4c2f;
+    background-color: #ff5e38;
+    transition: ease 200ms;
 }
 
 
@@ -108,17 +103,12 @@ img {
     box-shadow: 10px 5px 10px rgb(82, 82, 82);
 }
 
-.nav-link:hover {
-    background-color: var(--clc-red);
-}
-
 
 .clc-form {
     border-radius: 1rem;
     color: var(--clc-white);
     padding: 2.5rem;
     max-width: 37.5rem;
-    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 .clc-form .clc-form-header {
@@ -164,16 +154,9 @@ img {
     color: var(--clc-red);
 }
 
-
-.offcanvas {
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/images/chickenllamacactus.jpg);
-    background-size: cover;
-    background-position: center;
-    color: var(--clc-white);
-    font-size: 24px;
-    text-align: center;
+.navbar {
+    padding: 2rem;
 }
-
 
 .navbar a {
     color: var(--clc-white);
@@ -185,11 +168,52 @@ img {
     color: var(--clc-white);
 }
 
+
+.navbar .navbar-brand img {
+    border-radius: 1.5rem;
+    border: solid 0.125rem var(--clc-white);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: 5rem;
+}
+
+
+.nav-link {
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    min-width: 0.5rem;
+}
+
+.nav-link:hover {
+    background-color: var(--clc-red);
+}
+
+
+.offcanvas {
+    color: var(--clc-white);
+    text-align: center;
+    font-size: 1rem;
+}
+
+.offcanvas .btn-close {
+    color: var(--clc-white);
+}
+
+.offcanvas .offcanvas-header .close {
+    border: none;
+    font-size: 1.75rem;
+}
+
+
 .offcanvas-body {
     color: var(--clc-white);
 }
 
 .offcanvas-body .nav-link, .offcanvas-body .nav-link.active {
     color: var(--clc-white);
+}
+
+.offcanvas-body .nav-link.active {
+    background-color: var(--clc-red);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15);
 }
 
