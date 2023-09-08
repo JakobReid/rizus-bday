@@ -10,53 +10,110 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
-    <link rel="icon" type="image/x-icon" href="../assets/images/chickenllamacactus.jpg">
-    <link rel="stylesheet" href="../styles.css">
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/e0631bf475.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" type="image/x-icon" href="./assets/images/chickenllamacactus.ico">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 
 
 
+
 <body>
+    <header>
+        <nav class="navbar navbar-expand-sm fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img src="./assets/images/chickenllamacactus.jpg">
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <i class="fas fa-fw fa-bars"></i>
+                </button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Navigate</h5>
+                            <button type="button" class="btn close" data-bs-dismiss="offcanvas" aria-label="Close">
+                                <i class="fas fa-fw fa-xmark"></i>
+                            </button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="./pages/minecraft.html">Minecraft</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="./pages/merch.html">Merch</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
     <main>
-        <div class="title-container">
-            <div class="hero-text">
-                <h1 class="title">Chicken<wbr>llama<wbr>cactus</h1>
-                <h2 class="subtitle">🐔 + 🦙 + 🌵</h2>
-            </div>
-
-
-            <div class="cards-container">
-                <div class="card">
-                    <img src="./assets/images/chickenllamacactus-pixelated.png" class="card-img" alt="chickenllamacactus-pixelated">
-                    <div class="card-img-overlay">
-                        <a href="./pages/minecraft.html" class="btn btn-red stretched-link">Play Minecraft</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <img src="./assets/images/chickenllamacactus.jpg" class="card-img" alt="chickenllamacactus-pixelated">
-                    <div class="card-img-overlay">
-                        <a href="./pages/merch.html" class="btn btn-red stretched-link">Buy Merch</a>
+        <section class="container-fluid" id="title-section">
+            <div class="row">
+                <div class="col">
+                    <div class="hero-text">
+                        <h1 class="title">Chicken<wbr>llama<wbr>cactus</h1>
+                        <h2 class="subtitle">
+                            <img src="./assets/images/chicken.png" width="64">
+                            +
+                            <img src="./assets/images/llama.png" width="64">
+                            +
+                            <img src="./assets/images/cactus.png" width="64">
+                        </h2>
                     </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+
+        <section class="container-fluid" id="mc-section">
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <img src="./assets/images/chickenllamacactus-pixelated.png" class="card-img" alt="chickenllamacactus-pixelated">
+                        <div class="card-img-overlay">
+                            <a href="./pages/minecraft.html" class="btn btn-red stretched-link">Play Minecraft</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <div class="card">
+                        <img src="./assets/images/chickenllamacactus.jpg" class="card-img" alt="chickenllamacactus-pixelated">
+                        <div class="card-img-overlay">
+                            <a href="./pages/merch.html" class="btn btn-red stretched-link">Buy Merch</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
 
+
     <footer>
-
+        <p>	&#169; Jakob Reid 2023</p>
+        <a href="https://www.flaticon.com/free-icons" title="icons">Icons created by Freepik - Flaticon</a>
     </footer>
-
-
-    <!-- bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
 </body>
 
 

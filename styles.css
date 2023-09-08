@@ -7,6 +7,19 @@
 
 
 @media only screen and (max-width: 576px) {
+    .title {
+        font-size: 4.5rem !important;
+    }
+
+    .subtitle {
+        margin-top: 4rem;
+        font-size: 3rem !important;
+    }
+
+    section .col, section .col-sm {
+        padding: 1rem !important; 
+    }
+
     .offcanvas {
         background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/images/chickenllamacactus.jpg);
         background-size: cover;
@@ -34,6 +47,38 @@ main {
 }
 
 
+section {
+    display: flex;
+}
+
+section .col, section .col-sm {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem; 
+}
+
+
+footer {
+    background-color: var(--clc-black);
+    color: var(--clc-white);
+    margin-top: 10rem;
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+footer a {
+    color: var(--clc-white);
+    text-decoration: none;
+    font-size: 0.75rem;
+}
+
+footer p {
+    margin-bottom: 0;
+}
+
+
 .btn {
     border: solid 0.25rem var(--clc-white);
     color: var(--clc-white);
@@ -52,11 +97,6 @@ main {
 }
 
 
-.title-container {
-    padding-top: 20vh;
-}
-
-
 .title {
     font-size: 6.5rem;
 }
@@ -67,19 +107,10 @@ main {
 }
 
 
-.cards-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-}
-
-
 .card {
     width: 16rem;
     margin: 1rem;
     background: none;
-    border-radius: 0;
-    border: 1rem solid var(--clc-white);
 }
 
 
@@ -94,14 +125,6 @@ main {
 .hero-text {
     text-align: center;
     color: var(--clc-white);
-}
-
-
-.chickenllamacactus {
-    width: inherit;
-    width: 300px;
-    border-radius: 20px;
-    box-shadow: 10px 5px 10px rgb(82, 82, 82);
 }
 
 
@@ -173,8 +196,7 @@ main {
 
 
 .navbar .navbar-brand img {
-    border-radius: 1.5rem;
-    border: solid 0.125rem var(--clc-white);
+    border-radius: 5rem;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     width: 7rem;
 }
@@ -217,7 +239,6 @@ main {
 
 .offcanvas-body .nav-link.active {
     background-color: var(--clc-red);
-    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15), inset 0 -1px 0 rgba(255,255,255,0.15);
 }
 
 
@@ -228,4 +249,13 @@ main {
     align-items: center;
     padding: 1rem;
     text-align: center;
+}
+
+
+#title-section {
+    justify-content: center;
+}
+
+#mc-section {
+    justify-content: center;
 }
