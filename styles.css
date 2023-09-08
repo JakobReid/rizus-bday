@@ -258,6 +258,10 @@ footer p {
     text-align: center;
 }
 
+.clc-badge a {
+    color: var(--clc-white);
+}
+
 
 #title-section {
     justify-content: center;
