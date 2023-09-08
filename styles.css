@@ -2,13 +2,22 @@
     --clc-green: #73ac52;
     --clc-red: #ff5e38;
     --clc-white: #fff0e9;
+    --clc-black: #22333B;
 }
 
 
 body, html {
     height: 100%;
     background-color: var(--clc-green) !important;
-    font-family: fantasy !important;
+}
+
+
+main {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    flex-wrap: wrap;
 }
 
 
@@ -101,4 +110,39 @@ img {
 
 .nav-link:hover {
     background-color: var(--clc-red) !important;
+}
+
+
+.clc-form {
+    background-color: var(--clc-black);
+    border-radius: 1rem;
+    color: var(--clc-white);
+    padding: 2.5rem;
+    max-width: 37.5rem;
+    box-shadow: 0 4px 10px 4px var(--clc-black);
+}
+
+.clc-form .clc-form-header {
+    display: flex;
+    align-content: center;
+    margin-top: 0 !important;
+}
+
+.clc-form .clc-form-header h3 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.clc-form .row {
+    margin-top: 1rem;
+}
+
+.text-clc-red {
+    color: var(--clc-red);
+}
+
+
+.form-control {
+    background-color: #22333B !important;
+    color: var(--clc-white) !important;
 }

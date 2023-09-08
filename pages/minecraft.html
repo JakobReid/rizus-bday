@@ -6,24 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ChickenllamacactusMC</title>
+    <title>Chickenllamacactus</title>
     <link rel="icon" type="image/x-icon" href="../assets/images/chickenllamacactus.jpg">
     <link rel="stylesheet" href="../styles.css">
 
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 </head>
 
 
 <body>
     <main>
-        <div class="title-container">
-            <div class="hero-text">
-                <h1 class="title">play.chickenllamacactus.com</h1>
-                <a href="../index.html" class="btn btn-red">Back</a>
+        <form class="clc-form" id="mc-register" action="" method="POST">
+            <div class="row clc-form-header">
+                <h3>Enter Your Minecraft Username to Register</h1>
             </div>
-        </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col">
+                    <label class="" for="">Username:</label>
+                    <input class="form-control" type="text" name="mc_user" id="mc-user" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label class="" for="">Email:</label>
+                    <input class="form-control" type="email" name="email" id="email" required>
+                </div>
+            </div>
+        </form>
     </main>
 
     <footer>
