@@ -2,15 +2,16 @@
     --clc-green: #73ac52;
     --clc-red: #ff5e38;
     --clc-white: #fbfcff;
+    --clc-blue: 8bb4c8;
     --clc-black: #22333B;
 }
 
 
 body, html {
     height: 100%;
-    background-color: var(--clc-green) !important;
+    background-color: var(--clc-green);
+    color: var(--clc-white);
 }
-
 
 main {
     display: flex;
@@ -27,18 +28,31 @@ img {
 }
 
 .btn {
-    border: solid 0.25rem white !important;
+    border: solid 0.25rem var(--clc-white);
+    color: var(--clc-white);
 }
 
+
 .btn-red {
-    color: var(--clc-white) !important;
-    background-color: var(--clc-red) !important;
+    color: var(--clc-white);
+    background-color: var(--clc-red);
+}
+
+.btn-red:hover {
+    color: var(--clc-white);
+    background-color: #cc4c2f;
+}
+
+
+.btn-red {
+    color: var(--clc-white);
+    background-color: var(--clc-red);
 }
 
 
 .btn-red:hover {
-    color: var(--clc-white) !important;
-    background-color: #cc4c2f !important;
+    color: var(--clc-white);
+    background-color: #cc4c2f;
 }
 
 
@@ -67,9 +81,9 @@ img {
 .card {
     width: 16rem;
     margin: 1rem;
-    background: none !important;
-    border-radius: 0 !important;
-    border: 1rem solid var(--clc-white) !important;
+    background: none;
+    border-radius: 0;
+    border: 1rem solid var(--clc-white);
 }
 
 
@@ -94,20 +108,8 @@ img {
     box-shadow: 10px 5px 10px rgb(82, 82, 82);
 }
 
-
-.nav {
-    justify-content: center;
-}
-
-
-.nav-link {
-    font-size: 24px !important;
-    color: var(--clc-white) !important;
-}
-
-
 .nav-link:hover {
-    background-color: var(--clc-red) !important;
+    background-color: var(--clc-red);
 }
 
 
@@ -144,9 +146,9 @@ img {
 }
 
 .clc-form .form-control {
-    background-color: transparent !important;
+    background-color: transparent;
     border: 0.125rem solid var(--clc-white);
-    color: var(--clc-white) !important;
+    color: var(--clc-white);
     transition: ease 200ms;
 }
 
@@ -161,3 +163,33 @@ img {
 .text-clc-red {
     color: var(--clc-red);
 }
+
+
+.offcanvas {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./assets/images/chickenllamacactus.jpg);
+    background-size: cover;
+    background-position: center;
+    color: var(--clc-white);
+    font-size: 24px;
+    text-align: center;
+}
+
+
+.navbar a {
+    color: var(--clc-white);
+}
+
+
+.navbar-toggler {
+    border: none;
+    color: var(--clc-white);
+}
+
+.offcanvas-body {
+    color: var(--clc-white);
+}
+
+.offcanvas-body .nav-link, .offcanvas-body .nav-link.active {
+    color: var(--clc-white);
+}
+
