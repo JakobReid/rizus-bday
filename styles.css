@@ -44,6 +44,7 @@ main {
     flex-wrap: wrap;
     flex-direction: column;
     margin-top: 9.625rem;
+    min-height: 70vh
 }
 
 
