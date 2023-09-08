@@ -25,7 +25,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-body-transparent fixed-top">
+        <nav class="navbar navbar-expand-sm fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="../index.html">
                     <img src="../assets/images/chickenllamacactus.jpg">
@@ -36,30 +36,30 @@
                     <i class="fas fa-fw fa-bars"></i>
                 </button>
 
-                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                        <div class="offcanvas-header">
-                            <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Navigate</h5>
-                                <button type="button" class="btn close" data-bs-dismiss="offcanvas" aria-label="Close">
-                                    <i class="fas fa-fw fa-xmark"></i>
-                                </button>
-                        </div>
-
-                        <div class="offcanvas-body">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="../index.html">Home</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="./minecraft.html">Minecraft</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./merch.html">Merch</a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Navigate</h5>
+                            <button type="button" class="btn close" data-bs-dismiss="offcanvas" aria-label="Close">
+                                <i class="fas fa-fw fa-xmark"></i>
+                            </button>
                     </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="./minecraft.html">Minecraft</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="./merch.html">Merch</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -67,33 +67,45 @@
 
 
     <main>
-        <form class="clc-form" id="mc-register" action="https://formspree.io/f/mjvqrzbq" method="POST">
-            <div class="row clc-form-header">
-                <h3>Register Your Minecraft Username</h1>
-            </div>
-
-            <hr />
-
-            <div class="row">
-                <div class="col">
-                    <label class="" for="">Username:</label>
-                    <input class="form-control" type="text" name="mc_user" id="mc-user" required>
+        <div class="container-fluid d-flex flex-column align-items-center">
+            <form class="clc-form" id="mc-register" action="https://formspree.io/f/mjvqrzbq" method="POST">
+                <div class="row clc-form-header">
+                    <h3>Register Your Minecraft Username</h1>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <label class="" for="">Email:</label>
-                    <input class="form-control" type="email" name="email" id="email" required>
-                </div>
-            </div>
+                <hr />
 
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-red" type="submit">Register</button>
+                <div class="row">
+                    <div class="col">
+                        <label class="" for="">Username:</label>
+                        <input class="form-control" type="text" name="mc_user" id="mc-user" required>
+                    </div>
                 </div>
-            </div>
-        </form>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="" for="">Email:</label>
+                        <input class="form-control" type="email" name="email" id="email" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-red" type="submit">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="container-fluid d-flex flex-column align-items-center mt-4">
+            <span class="clc-badge">
+                <img src="../assets/images/minecraft.webp" width="32" style="margin-right: 0.5rem;">
+                <span>
+                    Join at
+                    <strong>play.chickenllamacactus.com</strong>
+                </span>
+            </span>
+        </div>
     </main>
 
 
