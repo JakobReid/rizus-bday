@@ -111,6 +111,12 @@ footer p {
     width: 16rem;
     margin: 1rem;
     background: none;
+    border: none;
+}
+
+
+.card-img {
+    height: 100%;
 }
 
 
