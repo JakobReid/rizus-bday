@@ -112,7 +112,7 @@ footer p {
 }
 
 
-.card {
+.nav-card {
     width: 16rem;
     margin: 1rem;
     background: none;
@@ -133,9 +133,35 @@ footer p {
 }
 
 
+.event-card {
+    background-color: var(--clc-black);
+    border-radius: 1rem;
+    color: var(--clc-white);
+    max-width: 50rem;
+    padding: 1rem;
+}
+
+.event-card .card-img-top, .event-card .card-img-bottom {
+    border: solid 0.25rem var(--clc-white);
+    border-radius: 0.25rem;
+    height: auto;
+}
+
+.event-card .card-img-container {
+    padding: 0 1rem 1rem 1rem;
+}
+
 .hero-text {
     text-align: center;
     color: var(--clc-white);
+}
+
+
+.countdown-container {
+    background-color: var(--clc-black);
+    border-radius: 2rem;
+    margin-top: 4rem;
+    max-width: 50rem;
 }
 
 
@@ -189,10 +215,6 @@ footer p {
     background: var(--clc-black);
 }
 
-
-.dropdown-item {
-
-}
 
 .dropdown-item:hover {
     background: none;
