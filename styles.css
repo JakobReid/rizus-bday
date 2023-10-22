@@ -221,6 +221,11 @@ a {
 }
 
 
+.dropdown-toggle:active, .dropdown-toggle:hover, .dropdown-toggle::after, .dropdown-toggle.show {
+    color: var(--clc-white) !important;
+}
+
+
 .dropdown-item:hover {
     background: none;
     color: var(--clc-red);
