@@ -171,6 +171,7 @@ a {
     border-radius: 2rem;
     margin-top: 4rem;
     max-width: 50rem;
+    pointer-events: none;
 }
 
 
