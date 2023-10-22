@@ -84,6 +84,11 @@ footer p {
 }
 
 
+a {
+    color: var(--clc-red);
+}
+
+
 .btn {
     border: solid 0.25rem var(--clc-white);
     color: var(--clc-white);
@@ -148,7 +153,7 @@ footer p {
 }
 
 .event-card .card-img-container {
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 1rem;
 }
 
 .hero-text {
