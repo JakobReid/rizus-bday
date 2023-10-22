@@ -90,7 +90,7 @@ a {
 
 
 .btn {
-    border: solid 0.25rem var(--clc-white);
+    border: solid 0.125rem var(--clc-white);
     color: var(--clc-white);
 }
 
@@ -126,6 +126,7 @@ a {
 
 
 .card-img {
+    border: solid 0.25rem var(--clc-white);
     height: 100%;
 }
 
@@ -231,10 +232,15 @@ a {
 }
 
 
+.dropdown-item {
+    transition: ease 200ms;
+}
+
 .dropdown-item:hover {
     background: none;
     color: var(--clc-red);
     font-weight: bold;
+    transition: ease 200ms;
 }
 
 .dropdown-item.active {
