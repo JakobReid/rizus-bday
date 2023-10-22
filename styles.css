@@ -185,6 +185,28 @@ footer p {
 }
 
 
+.dropdown-menu {
+    background: var(--clc-black);
+}
+
+
+.dropdown-item {
+
+}
+
+.dropdown-item:hover {
+    background: none;
+    color: var(--clc-red);
+    font-weight: bold;
+}
+
+.dropdown-item.active {
+    background: none;
+    color: var(--clc-red);
+    font-weight: bold;
+}
+
+
 .text-clc-red {
     color: var(--clc-red);
 }
