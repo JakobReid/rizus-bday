@@ -1,341 +1,134 @@
-:root {
-    --clc-green: #73ac52;
-    --clc-red: #ff5e38;
-    --clc-white: #fbfcff;
-    --clc-black: #333333;
+body {
+    min-height: 300vh;
+    margin: 0;
+    padding: 10rem;
+    background-image: url('assets/images/mochi/mochi_1.png');
+    background-repeat: repeat;
+    background-size: 400px;
+    background-position: center;
+    animation: alternateBackground 1s infinite linear;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: yellow;
+    text-shadow: 2px 2px 4px #000000;
+    overflow: scroll;
 }
 
-
-@media only screen and (max-width: 576px) {
-    .title {
-        font-size: 4.5rem !important;
+/* Animation for alternating background images */
+@keyframes alternateBackground {
+    0%, 50% {
+        background-image: url('assets/images/mochi/mochi_1.png');
     }
-
-    .subtitle {
-        margin-top: 4rem;
-        font-size: 3rem !important;
+    50.1%, 100% {
+        background-image: url('assets/images/phrank/phrank_1.png');
     }
+}
 
-    section .col, section .col-sm {
-        padding: 1rem !important; 
+/* Shake animation for images */
+.shake-image {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0) rotate(0);
     }
-
-    .offcanvas {
-        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("./assets/images/chickenllamacactus.jpg");
-        background-size: cover;
-        background-position: center;
-        box-shadow: rgba(0, 0, 0, 0.35) 0 0px 10px 1px;
-        font-size: 1.5rem;
+    25% {
+        transform: translate(-5px, 0) rotate(-25deg);
     }
-
-        .nav-item {
-            margin-top: 0.5rem;
-        }
-  }
-
-
-body, html {
-    background-color: var(--clc-green);
-    color: var(--clc-white);
+    50% {
+        transform: translate(5px, 0) rotate(25deg);
+    }
+    75% {
+        transform: translate(-5px, 0) rotate(-25deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
 }
 
-
-main {
-    display: flex;
-    align-content: center;
-    justify-content: flex-start;
-    height: 100%;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin-top: 7.625rem;
-    min-height: 70vh
+/* Display 1 style */
+.display-1 {
+    text-shadow: 2px 2px 4px #000000;
 }
 
-
-section {
-    display: flex;
+/* Face image style */
+.face-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 
-section .col, section .col-sm {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 1rem; 
-}
-
-
-footer {
-    background-color: var(--clc-black);
-    color: var(--clc-white);
-    margin-top: 10rem;
-    padding: 1rem;
-    position: relative;
-    text-align: center;
+/* Confetti canvas style */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-}
-
-footer a {
-    color: var(--clc-white);
-    text-decoration: none;
-    font-size: 0.75rem;
-}
-
-footer p {
-    margin-bottom: 0;
-}
-
-
-a {
-    color: var(--clc-red);
-}
-
-
-.btn {
-    border: solid 0.125rem var(--clc-white);
-    color: var(--clc-white);
-}
-
-
-.btn-red {
-    color: var(--clc-white);
-    background-color: var(--clc-red);
-}
-
-.btn-red:hover {
-    color: var(--clc-white);
-    background-color: #ff5e38;
-    transition: ease 200ms;
-}
-
-
-.title {
-    font-size: 6.5rem;
-}
-
-
-.subtitle {
-    font-size: 4rem;
-}
-
-
-.nav-card {
-    width: 16rem;
-    margin: 1rem;
-    background: none;
-    border: none;
-}
-
-
-.card-img {
-    border: solid 0.25rem var(--clc-white);
     height: 100%;
-}
-
-
-.card-img-overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.event-card {
-    background-color: var(--clc-black);
-    border-radius: 1rem;
-    color: var(--clc-white);
-    max-width: 50rem;
-    padding: 1rem;
-}
-
-.event-card .card-img-top, .event-card .card-img-bottom {
-    border: solid 0.25rem var(--clc-white);
-    border-radius: 0.25rem;
-    height: auto;
-}
-
-.event-card .card-img-container {
-    padding: 0 1rem;
-}
-
-.event-card .card-body {
-    padding-bottom: 0;
-}
-
-.hero-text {
-    text-align: center;
-    color: var(--clc-white);
-}
-
-
-.countdown-container {
-    background-color: var(--clc-black);
-    border-radius: 2rem;
-    margin-top: 4rem;
-    max-width: 50rem;
+    z-index: 0;
     pointer-events: none;
 }
 
-
-.clc-form {
-    border-radius: 1rem;
-    color: var(--clc-white);
-    padding: 2.5rem;
-    max-width: 37.5rem;
+/* Gift box style */
+.gift-box {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    transition: transform 0.3s ease;
 }
 
-.clc-form .clc-form-header {
-    display: flex;
-    align-content: center;
-    margin-top: 0 !important;
+.gift-box:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    cursor: pointer;
 }
 
-.clc-form .clc-form-header h3 {
-    text-align: center;
-    margin-bottom: 0;
+.old-letter {
+    flex: 1; /* Make old letter take 50% width */
+    height: 600px;
+    background-image: url('assets/images/old_paper.png');
+    background-size: cover;
+    padding: 100px;
+    text-align: left;
+    font-family: 'Great Vibes', cursive;
+    font-size: 24px;
+    color: black;
 }
 
-.clc-form .row {
-    margin-top: 1rem;
+.event-container {
+    flex: 1; /* Make event container take 50% width */
+    max-width: 600px;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
 }
 
-.clc-form button[type="submit"] {
-    width: 100%;
-    margin-top: 1rem;
-}
 
-.clc-form label {
+
+.event-title {
+    font-size: 24px;
     font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
 }
 
-.clc-form .form-control {
-    background-color: var(--clc-black);
-    border: 0.125rem solid var(--clc-white);
-    color: var(--clc-white);
-    transition: ease 200ms;
+.event-details {
+    color: #666;
+    margin-bottom: 15px;
 }
 
-.clc-form .form-control:focus {
-    border: 0.125rem solid var(--clc-black);
-    box-shadow: none;
-    outline: none;
-    transition: ease 200ms;
+.event-description {
+    line-height: 1.6;
+    color: #444;
 }
 
-
-.dropdown-menu {
-    background: var(--clc-black);
-}
-
-
-.dropdown-toggle:active, .dropdown-toggle:hover, .dropdown-toggle::after, .dropdown-toggle.show {
-    color: var(--clc-white) !important;
-}
-
-
-.dropdown-item {
-    transition: ease 200ms;
-}
-
-.dropdown-item:hover {
-    background: none;
-    color: var(--clc-red);
-    font-weight: bold;
-    transition: ease 200ms;
-}
-
-.dropdown-item.active {
-    background: none;
-    color: var(--clc-red);
-    font-weight: bold;
-}
-
-
-.text-clc-red {
-    color: var(--clc-red);
-}
-
-.navbar {
-    background-color: var(--clc-green);
-    padding: 1rem 0 1rem 0;
-}
-
-.navbar a {
-    color: var(--clc-white);
-}
-
-
-.navbar-toggler {
-    border: none;
-    color: var(--clc-white);
-    font-size: 2.5rem;
-}
-
-
-.navbar .navbar-brand img {
-    border-radius: 5rem;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    width: 7rem;
-}
-
-
-.nav-link {
-    border-radius: 0.5rem;
-    margin-right: 0.5rem;
-    min-width: 0.5rem;
-}
-
-.nav-link:hover {
-    background-color: var(--clc-red);
-}
-
-
-.offcanvas {
-    color: var(--clc-white);
-    text-align: center;
-    font-size: 1rem;
-}
-
-.offcanvas .btn-close {
-    color: var(--clc-white);
-}
-
-.offcanvas .offcanvas-header .close {
-    border: none;
-    font-size: 1.75rem;
-}
-
-
-.offcanvas-body {
-    color: var(--clc-white);
-}
-
-.offcanvas-body .nav-link, .offcanvas-body .nav-link.active {
-    color: var(--clc-white);
-}
-
-.offcanvas-body .nav-link.active {
-    background-color: var(--clc-red);
-}
-
-
-.clc-badge {
-    background: var(--clc-black);
-    border-radius: 3rem;
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    text-align: center;
-}
-
-.clc-badge a {
-    color: var(--clc-white);
-}
-
-
-#title-section {
-    justify-content: center;
-}
-
-#mc-section {
-    justify-content: center;
+.event-meta {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
 }

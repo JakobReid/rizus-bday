@@ -3,124 +3,245 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-    <title>Chickenllamacactus</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
 
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/e0631bf475.js" crossorigin="anonymous"></script>
-
-    <link rel="icon" type="image/x-icon" href="./assets/images/chickenllamacactus.ico">
-    <link rel="stylesheet" href="./styles.css">
+        .old-letter {
+            display: none; /* Initially hide old letter */
+        }
+    </style>
 </head>
 
-
-
-
-
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="./index.html">
-                    <img src="./assets/images/chickenllamacactus.jpg">
-                </a>
+    <!-- Content section -->
+    <div class="container text-center my-5">
+        <h1 class="display-1">Happy Birthday!</h1>
+        <img src="assets/images/rizu/rizu_1.png" alt="Pretty Face" class="face-image my-40" id="faceImage">
+    </div>
 
+    <!-- Gift box section -->
+    <a href="#" id="giftBoxLink">
+        <img src="assets/images/gift_box.png" alt="Gift Box" class="gift-box" id="giftBox">
+    </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                    <i class="fas fa-fw fa-bars"></i>
-                </button>
+<!-- Old letter section -->
+<div class="container d-flex">
+    <div class="old-letter">
+        <p>Dear R,</p>
+        <p>Happy Birthday! Love, Your Name</p>
+    </div>
 
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h3 class="offcanvas-title" id="offcanvasNavbarLabel">Navigate</h5>
-                            <button type="button" class="btn close" data-bs-dismiss="offcanvas" aria-label="Close">
-                                <i class="fas fa-fw fa-xmark"></i>
-                            </button>
-                    </div>
+    <!-- Event details section -->
+    <div class="event-container" style="display: none;">
+        <h2 class="event-title">Event Details</h2>
+        <div class="event-details">
+            <p><strong>Date:</strong> July 1st, 2024</p>
+            <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+            <p><strong>Location:</strong> Event Venue, City, Country</p>
+        </div>
+        <div class="event-description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod augue quis lorem ultricies, ac
+                venenatis purus dignissim.</p>
+            <p>Sed tempus justo sit amet dui tempus, ut tincidunt ligula gravida. Fusce gravida id ipsum non sodales.
+                Duis.</p>
+        </div>
+        <div class="event-meta">
+            <p><strong>Organizer:</strong> Your Organization</p>
+            <p><strong>Contact:</strong> organizer@example.com</p>
+            <p><strong>Website:</strong> <a href="http://www.example.com">www.example.com</a></p>
+        </div>
+    </div>
+</div>
 
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
+    
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown">Minecraft</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./pages/minecraft/register.html">Register</a></li>
-                                    <li><a class="dropdown-item" href="./pages/minecraft/events.html">Events</a></li>
-                                </ul>
-                            </li>
+    <!-- Confetti canvas section -->
+    <canvas id="confetti-canvas"></canvas>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="./pages/merch.html">Merch</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script type="text/javascript">
+        $(function () {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
 
+            const gravity = 0.5;
+            const terminalVelocity = 5;
+            const drag = 0.075;
+            let clickCount = 0; // Track the number of clicks
 
-    <main>
-        <section class="container-fluid" id="title-section">
-            <div class="row">
-                <div class="col">
-                    <div class="hero-text">
-                        <h1 class="title">Chicken<wbr>llama<wbr>cactus</h1>
-                        <h2 class="subtitle">
-                            <img src="./assets/images/chicken.png" width="64">
-                            +
-                            <img src="./assets/images/llama.png" width="64">
-                            +
-                            <img src="./assets/images/cactus.png" width="64">
-                        </h2>
-                    </div>
-                </div>
-            </div>
-        </section>
+            const colors = [
+                { front: 'red', back: 'darkred' },
+                { front: 'green', back: 'darkgreen' },
+                { front: 'blue', back: 'darkblue' },
+                { front: 'yellow', back: 'darkyellow' },
+                { front: 'orange', back: 'darkorange' },
+                { front: 'pink', back: 'darkpink' },
+                { front: 'purple', back: 'darkpurple' },
+                { front: 'turquoise', back: 'darkturquoise' }
+            ];
 
+            initConfetti();
 
-        <section class="container-fluid" id="mc-section">
-            <div class="row">
-                <div class="col-sm">
-                    <div class="card nav-card">
-                        <img src="./assets/images/chickenllamacactus-pixelated.png" class="card-img" alt="chickenllamacactus-pixelated">
-                        <div class="card-img-overlay">
-                            <a href="./pages/minecraft/register.html" class="btn btn-red stretched-link">Play Minecraft</a>
-                        </div>
-                    </div>
-                </div>
+            function randomRange(min, max) {
+                return Math.random() * (max - min) + min;
+            }
 
-                <div class="col-sm">
-                    <div class="card nav-card">
-                        <img src="./assets/images/clc-shirt.png" class="card-img" alt="clc-shirts">
-                        <div class="card-img-overlay">
-                            <a href="./pages/merch.html" class="btn btn-red stretched-link">Buy Merch</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+            function shake(element, duration) {
+                element.classList.add('shake-image');
+                setTimeout(() => {
+                    element.classList.remove('shake-image');
+                }, duration);
+            }
 
+            function moveGiftBox() {
+                const giftBox = document.getElementById('giftBox');
+                const maxWidth = window.innerWidth - 200; // Adjust 200 based on gift box width
+                const maxHeight = window.innerHeight - 200; // Adjust 200 based on gift box height
+                const newX = randomRange(0, maxWidth);
+                const newY = randomRange(0, maxHeight);
 
+                giftBox.style.left = `${newX}px`;
+                giftBox.style.top = `${newY}px`;
+            }
 
-    <footer>
-        <p>	&#169; Jakob Reid 2023</p>
-        <a href="https://www.flaticon.com/" title="icons">Icons created by Freepik - Flaticon</a>
-    </footer>
+            function initConfetti(clickX, clickY) {
+                const confetti = [];
+                const confettiCount = 300;
+
+                for (let i = 0; i < confettiCount; i++) {
+                    confetti.push({
+                        color: colors[Math.floor(randomRange(0, colors.length))],
+                        dimensions: {
+                            x: randomRange(10, 20),
+                            y: randomRange(10, 30)
+                        },
+                        position: {
+                            x: clickX !== undefined ? clickX : randomRange(0, canvas.width),
+                            y: clickY !== undefined ? clickY : randomRange(0, canvas.height)
+                        },
+                        rotation: randomRange(0, 2 * Math.PI),
+                        scale: {
+                            x: 1,
+                            y: 1
+                        },
+                        velocity: {
+                            x: randomRange(-25, 25),
+                            y: randomRange(0, -50)
+                        }
+                    });
+                }
+
+                function render() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    confetti.forEach((confetto) => {
+                        let width = (confetto.dimensions.x * confetto.scale.x);
+                        let height = (confetto.dimensions.y * confetto.scale.y);
+
+                        // Move canvas to position and rotate
+                        ctx.translate(confetto.position.x, confetto.position.y);
+                        ctx.rotate(confetto.rotation);
+
+                        // Apply forces to velocity
+                        confetto.velocity.x -= confetto.velocity.x * drag;
+                        confetto.velocity.y = Math.min(confetto.velocity.y + gravity, terminalVelocity);
+                        confetto.velocity.x += Math.random() > 0.5 ? Math.random() : -Math.random();
+
+                        // Set position
+                        confetto.position.x += confetto.velocity.x;
+                        confetto.position.y += confetto.velocity.y;
+
+                        // Bounce confetti off the bottom
+                        if (confetto.position.y >= canvas.height) confetto.velocity.y *= -0.5;
+
+                        // Bounce confetti off the sides
+                        if (confetto.position.x > canvas.width) confetto.position.x = 0;
+                        if (confetto.position.x < 0) confetto.position.x = canvas.width;
+
+                        // Spin confetto
+                        confetto.rotation += confetto.velocity.x * 0.01;
+
+                        // Draw confetto
+                        ctx.fillStyle = confetto.scale.y > 0 ? confetto.color.front : confetto.color.back;
+
+                        ctx.fillRect(-width / 2, -height / 2, width, height);
+
+                        // Reset transform matrix
+                        ctx.setTransform(1, 0, 0, 1, 0, 0);
+                    });
+
+                    window.requestAnimationFrame(render);
+                }
+
+                render();
+
+                // Draw "Happy Birthday!" text and shake image on click
+                if (clickX !== undefined && clickY !== undefined) {
+                    ctx.font = 'bold 48px Arial';
+                    ctx.fillStyle = 'white';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('Happy Birthday!', clickX, clickY);
+
+                    // Shake image
+                    const image = document.getElementById('faceImage');
+                    shake(image, 500);
+
+                    // Increment click count
+                    clickCount++;
+
+                    // Display old-timey letter and event details after 3 clicks
+                    if (clickCount === 3) {
+                        const letterContainer = document.querySelector('.old-letter');
+                        letterContainer.style.display = 'block';
+
+                        const eventContainer = document.querySelector('.event-container');
+                        eventContainer.style.display = 'block';
+                    }
+                }
+            }
+
+            // Trigger confetti and "Happy Birthday!" on click
+            $('body, #confetti-canvas').on('click', function (e) {
+                if (clickCount < 3) {
+                    initConfetti(e.clientX, e.clientY);
+                } else {
+                    // Handle logic after three clicks, if needed
+                }
+            });
+
+            // Shake image on page load
+            const image = document.getElementById('faceImage');
+            shake(image, 5000); // Shake for 5 seconds on page load
+
+            // Move gift box on click
+            const giftBoxLink = document.getElementById('giftBoxLink');
+            giftBoxLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                moveGiftBox();
+            });
+        });
+    </script>
 </body>
-
-
-
 
 </html>
