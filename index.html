@@ -113,6 +113,8 @@
                 const gravity = 0.5;
                 const terminalVelocity = 5;
                 const drag = 0.075;
+
+                let imageIndex = 0;
                 let clickCount = 0; // Track the number of clicks
 
                 const colors = [
@@ -160,7 +162,9 @@
                         'rizu_8.png',
                     ];
 
-                    const randomImage = images[Math.floor(Math.random() * images.length)];
+                    imageIndex = (imageIndex < 7) ? (imageIndex + 1) : 0;
+
+                    const randomImage = images[imageIndex];
                     const imagePath = `assets/images/rizu/${randomImage}`;
 
                     const faceImage = document.getElementById('faceImage');
