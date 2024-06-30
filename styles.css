@@ -1,16 +1,35 @@
+/* For screens smaller than 768px (typical tablets and phones) */
+@media (max-width: 768px) {
+    .event-container {
+        font-size: 24px; /* Adjust font size for smaller screens */
+    }
+}
+
+/* For screens smaller than 576px (typical phones in portrait mode) */
+@media (max-width: 576px) {
+    .event-container {
+        font-size: 18px; /* Further adjust font size for smaller phones */
+    }
+}
+
+
 body {
     min-height: 300vh;
     margin: 0;
-    padding: 10rem;
+    padding: 2.5rem;
     background-image: url('assets/images/mochi/mochi_1.png');
     background-repeat: repeat;
     background-size: 400px;
     background-position: center;
+    background-color: rgb(250, 109, 219);
     animation: alternateBackground 1s infinite linear;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     color: yellow;
-    text-shadow: 2px 2px 4px #000000;
     overflow: scroll;
+}
+
+p {
+    margin-bottom: 2rem;
 }
 
 /* Animation for alternating background images */
@@ -53,27 +72,16 @@ body {
 
 /* Face image style */
 .face-image {
-    width: 200px;
-    height: 200px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
-}
-
-/* Confetti canvas style */
-#confetti-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
 }
 
 /* Gift box style */
 .gift-box {
     position: fixed;
-    top: 70%;
-    left: 50%;
+    top: 80%;
+    left: 80%;
     transform: translate(-50%, -50%);
     width: 300px;
     height: 300px;
@@ -87,14 +95,16 @@ body {
 
 .old-letter {
     flex: 1; /* Make old letter take 50% width */
-    height: 600px;
+    z-index: 1;
     background-image: url('assets/images/old_paper.png');
     background-size: cover;
-    padding: 100px;
+    padding: 3rem;
     text-align: left;
     font-family: 'Great Vibes', cursive;
-    font-size: 24px;
+    font-size: 2rem;
     color: black;
+    width: 100%;
+    min-width: 30rem;
 }
 
 .event-container {
@@ -106,9 +116,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-
-
 
 .event-title {
     font-size: 24px;
@@ -131,4 +140,9 @@ body {
     margin-top: 20px;
     font-size: 14px;
     color: #888;
+}
+
+
+#changeFontButton {
+    font-size: 4rem;
 }

@@ -45,30 +45,56 @@
     <!-- Old letter section -->
     <div class="container d-flex">
         <div class="old-letter">
-            <p>Dear R,</p>
-            <p>Happy Birthday! Love, Your Name</p>
+            <p>Dear Rizu,</p>
+
+            <p>
+                Happy Birthday!!!!!!!!!! 🎉🎊🥳🎊 I hope you have a really fun day and get spoiled hehe.
+
+            </p>
+
+            <p>
+                I miss you lots, I wish I could be there to celebrate with you.
+                I can't believe it's been a year since the last time you celebrated your birthday in Japan. I feel like it went really quick but also really slow 🤔🤔.
+                I'm really proud of you for everything you've been able to do in this gap year hahaha. I think you're really special and I can't wait to get back on with
+                the rest of our lives together really really really soon.
+            </p>
+
+            <p>
+                You've been doing a really good job keeping busy busy over there, continuing your pro athlete career and working from home.
+                I think you've earned some RnR so I've booked you a massage for this weekend 💆‍♀️🙏.
+            </p>
+
+            <div class="event-container" style="display: none;">
+                <h2 class="event-title">Event Details</h2>
+                <div class="event-details">
+                    <p><strong>Date:</strong> July 7th, 2024</p>
+                    <p><strong>Time:</strong> 12:00 PM - 2:00 PM</p>
+                    <p><strong>Location:</strong> Roppongi Daiya Heights 4F(412), 7-15-13
+                        Roppongi, Minato-ku, Tokyo 106-0032</p>
+                </div>
+                <div class="event-description">
+                    <p>120 min Traditional Thai Massage</p>
+                    <i>The purpose of Thai massage is to bring the body, mind, and spirit into a state of balance and harmony, providing an opportunity for self-healing.</i>
+                </div>
+                <div class="event-meta">
+                    <p><strong>Website:</strong> <a href="https://erawan.jp/">https://erawan.jp/</a></p>
+                </div>
+                <a class="btn btn-warning" target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NjlhM3UwY2FoZmVrczRpM2VscHNwazIzaTQgNjY0MzMwZTlhZmE1OWM0MWNhM2FiNmNlYTI5NzNhOWNjMjRiN2VjMDA0ZjQzMjhlNTg5OTQxNTkzZjg0NGRmZUBn&amp;tmsrc=664330e9afa59c41ca3ab6cea2973a9cc24b7ec004f4328e589941593f844dfe%40group.calendar.google.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif">
+                    <- CLICK HERE TO ADD TO CALENDAR 🔥🔥 </a>
+            </div>
+
+            <p class="my-2">Love From,</p>
+            <p>Jakob</p>
+
+            <br>
+            <hr>
+            <p>P.S. lots of love from Mochi and Phrank - they can't wait for cuddles 😁</p>
+
+            <button class="btn btn-primary" id="changeFontButton">Can't read this awful font?</button>
         </div>
 
         <!-- Event details section -->
-        <div class="event-container" style="display: none;">
-            <h2 class="event-title">Event Details</h2>
-            <div class="event-details">
-                <p><strong>Date:</strong> July 1st, 2024</p>
-                <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
-                <p><strong>Location:</strong> Event Venue, City, Country</p>
-            </div>
-            <div class="event-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod augue quis lorem ultricies, ac
-                    venenatis purus dignissim.</p>
-                <p>Sed tempus justo sit amet dui tempus, ut tincidunt ligula gravida. Fusce gravida id ipsum non sodales.
-                    Duis.</p>
-            </div>
-            <div class="event-meta">
-                <p><strong>Organizer:</strong> Your Organization</p>
-                <p><strong>Contact:</strong> organizer@example.com</p>
-                <p><strong>Website:</strong> <a href="http://www.example.com">www.example.com</a></p>
-            </div>
-        </div>
+
     </div>
 
 
@@ -103,6 +129,26 @@
             ];
 
             initConfetti();
+
+
+            
+
+            const changeFontButton = document.getElementById('changeFontButton');
+            const oldLetter = document.querySelector('.old-letter');
+
+            let isOld = true;
+
+            changeFontButton.addEventListener('click', function () {
+                if (isOld) {
+                    oldLetter.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
+                } else {
+                    oldLetter.style.fontFamily = "'Great Vibes', cursive";
+                }
+                isOld = !isOld;
+            });
+
+
+
 
             function changeFaceImage() {
                 const images = [
@@ -148,7 +194,7 @@
                 clickCount++;
 
                 // Display old-timey letter and event details after 3 clicks
-                if (clickCount === 3) {
+                if (clickCount === 1) {
                     const letterContainer = document.querySelector('.old-letter');
                     letterContainer.style.display = 'block';
 
