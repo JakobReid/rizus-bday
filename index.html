@@ -24,7 +24,8 @@
         }
 
         .old-letter {
-            display: none; /* Initially hide old letter */
+            display: none;
+            /* Initially hide old letter */
         }
     </style>
 </head>
@@ -41,36 +42,36 @@
         <img src="assets/images/gift_box.png" alt="Gift Box" class="gift-box" id="giftBox">
     </a>
 
-<!-- Old letter section -->
-<div class="container d-flex">
-    <div class="old-letter">
-        <p>Dear R,</p>
-        <p>Happy Birthday! Love, Your Name</p>
+    <!-- Old letter section -->
+    <div class="container d-flex">
+        <div class="old-letter">
+            <p>Dear R,</p>
+            <p>Happy Birthday! Love, Your Name</p>
+        </div>
+
+        <!-- Event details section -->
+        <div class="event-container" style="display: none;">
+            <h2 class="event-title">Event Details</h2>
+            <div class="event-details">
+                <p><strong>Date:</strong> July 1st, 2024</p>
+                <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+                <p><strong>Location:</strong> Event Venue, City, Country</p>
+            </div>
+            <div class="event-description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod augue quis lorem ultricies, ac
+                    venenatis purus dignissim.</p>
+                <p>Sed tempus justo sit amet dui tempus, ut tincidunt ligula gravida. Fusce gravida id ipsum non sodales.
+                    Duis.</p>
+            </div>
+            <div class="event-meta">
+                <p><strong>Organizer:</strong> Your Organization</p>
+                <p><strong>Contact:</strong> organizer@example.com</p>
+                <p><strong>Website:</strong> <a href="http://www.example.com">www.example.com</a></p>
+            </div>
+        </div>
     </div>
 
-    <!-- Event details section -->
-    <div class="event-container" style="display: none;">
-        <h2 class="event-title">Event Details</h2>
-        <div class="event-details">
-            <p><strong>Date:</strong> July 1st, 2024</p>
-            <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
-            <p><strong>Location:</strong> Event Venue, City, Country</p>
-        </div>
-        <div class="event-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod augue quis lorem ultricies, ac
-                venenatis purus dignissim.</p>
-            <p>Sed tempus justo sit amet dui tempus, ut tincidunt ligula gravida. Fusce gravida id ipsum non sodales.
-                Duis.</p>
-        </div>
-        <div class="event-meta">
-            <p><strong>Organizer:</strong> Your Organization</p>
-            <p><strong>Contact:</strong> organizer@example.com</p>
-            <p><strong>Website:</strong> <a href="http://www.example.com">www.example.com</a></p>
-        </div>
-    </div>
-</div>
 
-    
 
     <!-- Confetti canvas section -->
     <canvas id="confetti-canvas"></canvas>
@@ -103,6 +104,25 @@
 
             initConfetti();
 
+            function changeFaceImage() {
+                const images = [
+                    'rizu_1.png',
+                    'rizu_2.png',
+                    'rizu_3.png',
+                    'rizu_4.png',
+                    'rizu_5.png',
+                    'rizu_6.png',
+                    'rizu_7.png',
+                    'rizu_8.png',
+                ];
+
+                const randomImage = images[Math.floor(Math.random() * images.length)];
+                const imagePath = `assets/images/rizu/${randomImage}`;
+
+                const faceImage = document.getElementById('faceImage');
+                faceImage.src = imagePath;
+            }
+
             function randomRange(min, max) {
                 return Math.random() * (max - min) + min;
             }
@@ -116,13 +136,25 @@
 
             function moveGiftBox() {
                 const giftBox = document.getElementById('giftBox');
-                const maxWidth = window.innerWidth - 200; // Adjust 200 based on gift box width
-                const maxHeight = window.innerHeight - 200; // Adjust 200 based on gift box height
-                const newX = randomRange(0, maxWidth);
-                const newY = randomRange(0, maxHeight);
+                const maxWidth = window.innerWidth - 400; // Adjust 400 based on gift box width
+                const maxHeight = window.innerHeight - 400; // Adjust 400 based on gift box height
+                const newX = randomRange(200, maxWidth);
+                const newY = randomRange(200, maxHeight);
 
                 giftBox.style.left = `${newX}px`;
                 giftBox.style.top = `${newY}px`;
+
+                // track clicks
+                clickCount++;
+
+                // Display old-timey letter and event details after 3 clicks
+                if (clickCount === 3) {
+                    const letterContainer = document.querySelector('.old-letter');
+                    letterContainer.style.display = 'block';
+
+                    const eventContainer = document.querySelector('.event-container');
+                    eventContainer.style.display = 'block';
+                }
             }
 
             function initConfetti(clickX, clickY) {
@@ -206,28 +238,13 @@
                     // Shake image
                     const image = document.getElementById('faceImage');
                     shake(image, 500);
-
-                    // Increment click count
-                    clickCount++;
-
-                    // Display old-timey letter and event details after 3 clicks
-                    if (clickCount === 3) {
-                        const letterContainer = document.querySelector('.old-letter');
-                        letterContainer.style.display = 'block';
-
-                        const eventContainer = document.querySelector('.event-container');
-                        eventContainer.style.display = 'block';
-                    }
                 }
             }
 
             // Trigger confetti and "Happy Birthday!" on click
             $('body, #confetti-canvas').on('click', function (e) {
-                if (clickCount < 3) {
-                    initConfetti(e.clientX, e.clientY);
-                } else {
-                    // Handle logic after three clicks, if needed
-                }
+                initConfetti(e.clientX, e.clientY);
+                changeFaceImage();
             });
 
             // Shake image on page load
