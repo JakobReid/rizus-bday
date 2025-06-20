@@ -4,310 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday!</title>
+    <title>Happy Birthday Rizu!</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-        }
-
-        #confetti-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-
-        .old-letter {
-            display: none;
-            /* Initially hide old letter */
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Content section -->
-        <div class="container text-center my-5">
-            <h1 class="display-1">Happy Birthday!</h1>
-            <img src="assets/images/rizu/rizu_1.png" alt="Pretty Face" class="face-image my-40" id="faceImage">
-        </div>
+    <!-- Login Container -->
+    <div class="login-container" id="loginContainer">
+        <h1><span class="star-emoji">✨</span> Rizu's Birthday Portal <span class="star-emoji">✨</span></h1>
+        <form id="loginForm">
+            <input type="password" id="passwordInput" placeholder="Enter the super secret password..." required>
+            <button type="submit">Enter</button>
+            <div class="error-message" id="errorMessage">Oops! That's not the super secret password. Try again!</div>
+        </form>
+    </div>
 
-        <!-- Gift box section -->
-        <a href="#" id="giftBoxLink">
-            <img src="assets/images/gift_box.png" alt="Gift Box" class="gift-box" id="giftBox">
-        </a>
+    <!-- Main Container -->
+    <div class="main-container" id="mainContainer">
+        <!-- Navigation Toggle -->
+        <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰ Years</button>
 
-        <!-- Old letter section -->
-        <div class="container d-flex">
-            <div class="old-letter">
-                <p>Dear Rizu,</p>
+        <!-- Side Navigation -->
+        <nav class="side-nav" id="sideNav">
+            <h2>Birthday Archive</h2>
+            <a href="#" class="year-link active" onclick="loadYear(2024)">2024 - The Original</a>
+        </nav>
 
-                <p>
-                    Happy Birthday!!!!!!!!!! 🎉🎊🥳🎊 I hope you have a really fun day and get spoiled hehe.
-
-                </p>
-
-                <p>
-                    I miss you lots, I wish I could be there to celebrate with you.
-                    I can't believe it's been a year since the last time you celebrated your birthday in Japan. I feel like it went really quick but also really slow 🤔🤔.
-                    I'm really proud of you for everything you've been able to do in this gap year hahaha. I think you're really special and I can't wait to get back on with
-                    the rest of our lives together really really really soon.
-                </p>
-
-                <p>
-                    You've been doing a really good job keeping busy busy over there, continuing your pro athlete career and working from home.
-                    I think you've earned some RnR so I've booked you a massage for this weekend 💆‍♀️🙏.
-                </p>
-
-                <div class="event-container" style="display: none;">
-                    <h2 class="event-title">Event Details</h2>
-                    <div class="event-details">
-                        <p><strong>Date:</strong> July 7th, 2024</p>
-                        <p><strong>Time:</strong> 12:00 PM - 2:00 PM</p>
-                        <p><strong>Location:</strong> Roppongi Daiya Heights 4F(412), 7-15-13
-                            Roppongi, Minato-ku, Tokyo 106-0032</p>
-                    </div>
-                    <div class="event-description">
-                        <p>120 min Traditional Thai Massage</p>
-                        <i>The purpose of Thai massage is to bring the body, mind, and spirit into a state of balance and harmony, providing an opportunity for self-healing.</i>
-                    </div>
-                    <div class="event-meta">
-                        <p><strong>Website:</strong> <a href="https://erawan.jp/">https://erawan.jp/</a></p>
-                    </div>
-                    <a class="btn btn-warning" target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NjlhM3UwY2FoZmVrczRpM2VscHNwazIzaTQgNjY0MzMwZTlhZmE1OWM0MWNhM2FiNmNlYTI5NzNhOWNjMjRiN2VjMDA0ZjQzMjhlNTg5OTQxNTkzZjg0NGRmZUBn&amp;tmsrc=664330e9afa59c41ca3ab6cea2973a9cc24b7ec004f4328e589941593f844dfe%40group.calendar.google.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif">
-                        <- CLICK HERE TO ADD TO CALENDAR 🔥🔥 </a>
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <h3>Next Birthday In:</h3>
+            <div class="countdown-timer" id="countdown">
+                <div class="time-unit">
+                    <span class="time-value" id="days">00</span>
+                    <span class="time-label">Days</span>
                 </div>
-
-                <p class="my-2">Love From,</p>
-                <p>Jakob</p>
-
-                <br>
-                <hr>
-                <p>P.S. lots of love from Mochi and Phrank - they can't wait for cuddles 😁</p>
-
-                <button class="btn btn-primary" id="changeFontButton">Can't read this awful font?</button>
+                <div class="time-unit">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Minutes</span>
+                </div>
+                <div class="time-unit">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Seconds</span>
+                </div>
             </div>
         </div>
 
+        <!-- Content Frame -->
+        <iframe class="content-frame" id="contentFrame" src=""></iframe>
+    </div>
 
+    <script>
+        // authentication
+        const correctPassword = 'rizu';
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('passwordInput').value;
+            
+            if (password.toLowerCase() === correctPassword) {
+                sessionStorage.setItem('authenticated', 'true');
+                
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('mainContainer').style.display = 'block';
+                
+                loadYear(2024);
+                
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('passwordInput').value = '';
+            }
+        });
 
-        <!-- Confetti canvas section -->
-        <canvas id="confetti-canvas"></canvas>
+        // check if already authenticated
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+            loadYear(2024);
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        // navigation
+        function toggleNav() {
+            const nav = document.getElementById('sideNav');
+            const toggle = document.getElementById('navToggle');
+            
+            nav.classList.toggle('collapsed');
+            toggle.classList.toggle('collapsed');
+        }
 
-        <script type="text/javascript">
-            $(function () {
-                const canvas = document.getElementById('confetti-canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-
-                const gravity = 0.5;
-                const terminalVelocity = 5;
-                const drag = 0.075;
-
-                let imageIndex = 0;
-                let clickCount = 0; // Track the number of clicks
-
-                const colors = [
-                    { front: 'red', back: 'darkred' },
-                    { front: 'green', back: 'darkgreen' },
-                    { front: 'blue', back: 'darkblue' },
-                    { front: 'yellow', back: 'darkyellow' },
-                    { front: 'orange', back: 'darkorange' },
-                    { front: 'pink', back: 'darkpink' },
-                    { front: 'purple', back: 'darkpurple' },
-                    { front: 'turquoise', back: 'darkturquoise' }
-                ];
-
-                initConfetti();
-
-
-
-
-                const changeFontButton = document.getElementById('changeFontButton');
-                const oldLetter = document.querySelector('.old-letter');
-
-                let isOld = true;
-
-                changeFontButton.addEventListener('click', function () {
-                    if (isOld) {
-                        oldLetter.style.fontFamily = "'Comic Sans MS', cursive, sans-serif";
-                    } else {
-                        oldLetter.style.fontFamily = "'Great Vibes', cursive";
-                    }
-                    isOld = !isOld;
-                });
-
-
-
-
-                function changeFaceImage() {
-                    const images = [
-                        'rizu_1.png',
-                        'rizu_2.png',
-                        'rizu_3.png',
-                        'rizu_4.png',
-                        'rizu_5.png',
-                        'rizu_6.png',
-                        'rizu_7.png',
-                        'rizu_8.png',
-                    ];
-
-                    imageIndex = (imageIndex < 7) ? (imageIndex + 1) : 0;
-
-                    const randomImage = images[imageIndex];
-                    const imagePath = `assets/images/rizu/${randomImage}`;
-
-                    const faceImage = document.getElementById('faceImage');
-                    faceImage.src = imagePath;
-                }
-
-                function randomRange(min, max) {
-                    return Math.random() * (max - min) + min;
-                }
-
-                function shake(element, duration) {
-                    element.classList.add('shake-image');
-                    setTimeout(() => {
-                        element.classList.remove('shake-image');
-                    }, duration);
-                }
-
-                function moveGiftBox() {
-                    const giftBox = document.getElementById('giftBox');
-                    const maxWidth = window.innerWidth - 400; // Adjust 400 based on gift box width
-                    const maxHeight = window.innerHeight - 400; // Adjust 400 based on gift box height
-                    const newX = randomRange(200, maxWidth);
-                    const newY = randomRange(200, maxHeight);
-
-                    giftBox.style.left = `${newX}px`;
-                    giftBox.style.top = `${newY}px`;
-
-                    // track clicks
-                    clickCount++;
-
-                    // Display old-timey letter and event details after 3 clicks
-                    if (clickCount === 3) {
-                        const letterContainer = document.querySelector('.old-letter');
-                        letterContainer.style.display = 'block';
-
-                        const eventContainer = document.querySelector('.event-container');
-                        eventContainer.style.display = 'block';
-                    }
-                }
-
-                function initConfetti(clickX, clickY) {
-                    const confetti = [];
-                    const confettiCount = 300;
-
-                    for (let i = 0; i < confettiCount; i++) {
-                        confetti.push({
-                            color: colors[Math.floor(randomRange(0, colors.length))],
-                            dimensions: {
-                                x: randomRange(10, 20),
-                                y: randomRange(10, 30)
-                            },
-                            position: {
-                                x: clickX !== undefined ? clickX : randomRange(0, canvas.width),
-                                y: clickY !== undefined ? clickY : randomRange(0, canvas.height)
-                            },
-                            rotation: randomRange(0, 2 * Math.PI),
-                            scale: {
-                                x: 1,
-                                y: 1
-                            },
-                            velocity: {
-                                x: randomRange(-25, 25),
-                                y: randomRange(0, -50)
-                            }
-                        });
-                    }
-
-                    function render() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                        confetti.forEach((confetto) => {
-                            let width = (confetto.dimensions.x * confetto.scale.x);
-                            let height = (confetto.dimensions.y * confetto.scale.y);
-
-                            // Move canvas to position and rotate
-                            ctx.translate(confetto.position.x, confetto.position.y);
-                            ctx.rotate(confetto.rotation);
-
-                            // Apply forces to velocity
-                            confetto.velocity.x -= confetto.velocity.x * drag;
-                            confetto.velocity.y = Math.min(confetto.velocity.y + gravity, terminalVelocity);
-                            confetto.velocity.x += Math.random() > 0.5 ? Math.random() : -Math.random();
-
-                            // Set position
-                            confetto.position.x += confetto.velocity.x;
-                            confetto.position.y += confetto.velocity.y;
-
-                            // Bounce confetti off the bottom
-                            if (confetto.position.y >= canvas.height) confetto.velocity.y *= -0.5;
-
-                            // Bounce confetti off the sides
-                            if (confetto.position.x > canvas.width) confetto.position.x = 0;
-                            if (confetto.position.x < 0) confetto.position.x = canvas.width;
-
-                            // Spin confetto
-                            confetto.rotation += confetto.velocity.x * 0.01;
-
-                            // Draw confetto
-                            ctx.fillStyle = confetto.scale.y > 0 ? confetto.color.front : confetto.color.back;
-
-                            ctx.fillRect(-width / 2, -height / 2, width, height);
-
-                            // Reset transform matrix
-                            ctx.setTransform(1, 0, 0, 1, 0, 0);
-                        });
-
-                        window.requestAnimationFrame(render);
-                    }
-
-                    render();
-
-                    // Draw "Happy Birthday!" text and shake image on click
-                    if (clickX !== undefined && clickY !== undefined) {
-                        ctx.font = 'bold 48px Arial';
-                        ctx.fillStyle = 'white';
-                        ctx.textAlign = 'center';
-                        ctx.fillText('Happy Birthday!', clickX, clickY);
-
-                        // Shake image
-                        const image = document.getElementById('faceImage');
-                        shake(image, 500);
-                    }
-                }
-
-                // Trigger confetti and "Happy Birthday!" on click
-                $('body, #confetti-canvas').on('click', function (e) {
-                    initConfetti(e.clientX, e.clientY);
-                    changeFaceImage();
-                });
-
-                // Shake image on page load
-                const image = document.getElementById('faceImage');
-                shake(image, 5000); // Shake for 5 seconds on page load
-
-                // Move gift box on click
-                const giftBoxLink = document.getElementById('giftBoxLink');
-                giftBoxLink.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    moveGiftBox();
-                });
+        function loadYear(year) {
+            document.getElementById('contentFrame').src = `years/${year}/index.html`;
+            
+            document.querySelectorAll('.year-link').forEach(link => {
+                link.classList.remove('active');
             });
-        </script>
+            event.target.classList.add('active');
+        }
+
+        // countdown timer
+        function updateCountdown() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            
+            let birthday = new Date(currentYear, 6, 1);
+            
+            if (now > birthday) {
+                birthday = new Date(currentYear + 1, 6, 1);
+            }
+            
+            const difference = birthday - now;
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+    </script>
 </body>
 
 </html>
