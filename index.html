@@ -92,8 +92,11 @@
             const navHTML = ['<h2>Birthday Archive</h2>'];
             
             availableYears.sort((a, b) => b.year - a.year).forEach(yearObj => {
-                const isActive = yearObj.year === getCurrentBirthdayYear() ? 'active' : '';
-                navHTML.push(`<a href="#" class="year-link ${isActive}" onclick="loadYear(${yearObj.year})">${yearObj.year} - ${yearObj.label}</a>`);
+                const isActive = yearObj.year === getCurrentBirthdayYear();
+                const activeClass = isActive ? 'active' : '';
+                const prefix = isActive ? '🎂 ' : '';
+                const suffix = isActive ? ' 🎉' : '';
+                navHTML.push(`<a href="#" class="year-link ${activeClass}" onclick="loadYear(${yearObj.year}, event)">${prefix}${yearObj.year} - ${yearObj.label}${suffix}</a>`);
             });
             
             sideNav.innerHTML = navHTML.join('');
@@ -139,13 +142,29 @@
             toggle.classList.toggle('collapsed');
         }
 
-        function loadYear(year) {
+        function loadYear(year, event) {
             document.getElementById('contentFrame').src = `years/${year}/index.html`;
             
-            document.querySelectorAll('.year-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            // only update active class if there are links to update
+            const links = document.querySelectorAll('.year-link');
+            if (links.length > 0) {
+                // remove active class from all links
+                links.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // add active class to the appropriate link
+                if (event && event.target) {
+                    event.target.classList.add('active');
+                } else {
+                    // if no event (initial load), find the link by year
+                    links.forEach(link => {
+                        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`loadYear(${year}`)) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }
         }
 
         // countdown timer
