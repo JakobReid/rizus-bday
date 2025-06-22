@@ -66,7 +66,7 @@
         // available years - add new years here as they're created
         const availableYears = [
             { year: 2024, label: "The Original" },
-            { year: 2025, label: "Coming Soon" }
+            { year: 2025, label: "Year in Review" }
         ];
         
         // get the appropriate year based on whether birthday has passed
@@ -164,6 +164,14 @@
                         }
                     });
                 }
+            }
+            
+            // collapse navigation after selecting a year
+            const nav = document.getElementById('sideNav');
+            const toggle = document.getElementById('navToggle');
+            if (!nav.classList.contains('collapsed')) {
+                nav.classList.add('collapsed');
+                toggle.classList.add('collapsed');
             }
         }
 
