@@ -408,6 +408,7 @@ body {
 }
 
 .birthday-message {
+    text-align: left;
     background: rgba(255, 255, 255, 0.7);
     padding: 40px;
     border-radius: 10px;
@@ -446,6 +447,66 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
+
+/* gift hunt page */
+.gift-hunt-page {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gift-intro {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin: 20px 0 40px;
+    color: #6b5637;
+}
+
+.gift-box-container {
+    margin: 50px 0;
+}
+
+.gift-box {
+    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.gift-box:hover {
+    transform: scale(1.1);
+}
+
+.gift-box-image {
+    width: 300px;
+    height: auto;
+    max-width: 90vw;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+}
+
+.gift-box:hover .gift-box-image {
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+.gift-box.opening {
+    animation: giftBoxOpen 0.8s ease-out;
+}
+
+@keyframes giftBoxOpen {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1.1) rotate(0deg); }
+}
+
+.gift-instruction {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #8b6f47;
+    margin-top: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
 
 /* story modal */
 .story-modal {
@@ -499,6 +560,75 @@ body {
     font-size: 1.2rem;
     line-height: 1.8;
     color: #3a3a3a;
+}
+
+/* gift modal */
+.gift-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.gift-modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.gift-modal-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2.5rem;
+    color: #ff69b4;
+    margin-bottom: 30px;
+}
+
+.gift-modal-photo {
+    margin: 20px 0;
+}
+
+.gift-modal-photo .gift-location-photo {
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gift-modal-clue {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 25px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.gift-modal-clue .clue-text {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    color: #ff6b6b;
+    font-weight: bold;
+    margin: 0;
+}
+
+.gift-modal-content .treasure-hunt-note {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: #8b6f47;
+    margin-top: 20px;
 }
 
 /* utility classes */

@@ -21,7 +21,7 @@
                     <span class="emoji">✈️</span>
                     <span class="emoji">🎉</span>
                 </div>
-                <p class="subtitle">A Year of Memories with Rizu</p>
+                <p class="subtitle">in case you forgot 👵</p>
                 <button class="open-book" onclick="openBook()">Open Book →</button>
             </div>
         </div>
@@ -31,11 +31,10 @@
             <!-- page 1 - introduction -->
             <div class="scrapbook-page">
                 <div class="page-content">
-                    <h2 class="page-title">Happy Birthday Rizu! 🎂</h2>
+                    <h2 class="page-title">Happy Birthday! 🎂</h2>
                     <div class="intro-text">
-                        <p>Another year, another adventure completed!</p>
-                        <p>I wanted to create something special for your birthday - a little book of our memories together.</p>
-                        <p>Scroll down to see some of my favorite moments from this year...</p>
+                        <p>Can't believe this time last year you were celebrating your birthday in Japan :0</p>
+                        <p>Made you a lil something to look back on your last year in your mid-20s</p>
                     </div>
                     <div class="doodle-hearts">♥ ♥ ♥</div>
                 </div>
@@ -145,13 +144,21 @@
             <!-- page 5 - birthday message -->
             <div class="scrapbook-page">
                 <div class="birthday-page">
-                    <h2 class="birthday-title">Happy 25th Birthday! 🎉</h2>
+                    <h2 class="birthday-title">Happy 24th Birthday! 🎉</h2>
                     <div class="birthday-message">
-                        <p>Rizu,</p>
-                        <p>As I put together this little book, I couldn't help but smile at all the amazing memories we've created.</p>
-                        <p>Here's to another year of adventures, laughter, and unforgettable moments!</p>
-                        <p>May your day be as special as you are.</p>
-                        <p class="signature">Love From,<br>Jakob</p>
+                        <p>Dear Rizu,</p>
+                        <p>
+                            I hope you're having a very special day today and that Mochi and Phrank are being extra nice. I wish I could celebrate with you in person but I'll have to wait until you come meet me in texas 🤠.
+                        </p>
+                        <p>
+                            Thinking back, the last bday message I wrote for you was when you were in Japan. 
+                            It's still pretty crazy to think that we were apart for more than a year - probably because we fit right back into place when you got back.
+                            I'm loving getting to live with you again and hanging out with our friends and family.
+                        </p>
+                        <p>
+                            Thanks for always being so sweet and thoughtful and pretty and amazing and everything.
+                        </p>
+                        <p class="signature">Love,<br>Jakob</p>
                     </div>
                     <div class="birthday-doodles">
                         <span>🎂</span>
@@ -159,6 +166,23 @@
                         <span>🎁</span>
                         <span>✨</span>
                     </div>
+                </div>
+            </div>
+
+            <!-- page 6 - gift hunt -->
+            <div class="scrapbook-page">
+                <div class="gift-hunt-page">
+                    <h2 class="page-title">But Wait... There's More...</h2>
+                    <div class="gift-intro">
+                        <p>I got ya a lil something too</p>
+                    </div>
+                    
+                    <div class="gift-box-container">
+                        <div class="gift-box" id="giftBox" onclick="openGiftBox()">
+                            <img src="./images/gift_box_heart.png" alt="Gift Box" class="gift-box-image">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -171,6 +195,21 @@
                     <img id="modalPhoto" src="" alt="Memory">
                 </div>
                 <div class="story-text" id="modalStory"></div>
+            </div>
+        </div>
+
+        <!-- gift location modal -->
+        <div class="gift-modal hidden" id="giftModal">
+            <div class="gift-modal-content">
+                <button class="close-btn" onclick="closeGiftModal()">×</button>
+                <h3 class="gift-modal-title">Found it! 🕵️‍♀️</h3>
+                <div class="gift-modal-photo">
+                    <img src="placeholder-gift-location.jpg" alt="Gift hiding location" class="gift-location-photo">
+                </div>
+                <div class="gift-modal-clue">
+                    <p class="clue-text">💡 [Add your hint here]</p>
+                </div>
+                <p class="treasure-hunt-note">Go find it! 🗺️✨</p>
             </div>
         </div>
     </div>
@@ -195,16 +234,40 @@
             document.getElementById('storyModal').classList.add('hidden');
         }
 
-        // close modal on background click
+        function openGiftBox() {
+            const giftBox = document.getElementById('giftBox');
+            const giftModal = document.getElementById('giftModal');
+            
+            // add opening animation to gift box
+            giftBox.classList.add('opening');
+            
+            // show the gift modal immediately
+            giftModal.classList.remove('hidden');
+        }
+
+        function closeGiftModal() {
+            document.getElementById('giftModal').classList.add('hidden');
+        }
+
+        // close modals on background click
         document.getElementById('storyModal').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeStory();
             }
         });
 
-        // keyboard navigation for modal
+        document.getElementById('giftModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGiftModal();
+            }
+        });
+
+        // keyboard navigation for modals
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeStory();
+            if (e.key === 'Escape') {
+                closeStory();
+                closeGiftModal();
+            }
         });
     </script>
 </body>
