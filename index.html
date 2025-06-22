@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!-- Login Container -->
+    <!-- login container -->
     <div class="login-container" id="loginContainer">
         <h1><span class="star-emoji">✨</span> Rizu's Birthday Portal <span class="star-emoji">✨</span></h1>
         <form id="loginForm">
@@ -22,19 +22,17 @@
         </form>
     </div>
 
-    <!-- Main Container -->
+    <!-- main container -->
     <div class="main-container" id="mainContainer">
-        <!-- Navigation Toggle -->
+        <!-- navigation toggle -->
         <button class="nav-toggle collapsed" id="navToggle" onclick="toggleNav()">☰ Memory Lane</button>
 
-        <!-- Side Navigation -->
+        <!-- side navigation -->
         <nav class="side-nav collapsed" id="sideNav">
-            <h2>Birthday Archive</h2>
-            <a href="#" class="year-link active" onclick="loadYear(2024)">2024 - The Original</a>
-            <a href="#" class="year-link" onclick="loadYear(2025)">2025 - Coming Soon</a>
+            <!-- navigation populated dynamically -->
         </nav>
 
-        <!-- Countdown Timer -->
+        <!-- countdown timer -->
         <div class="countdown-container">
             <h3>Next Birthday In:</h3>
             <div class="countdown-timer" id="countdown">
@@ -57,13 +55,49 @@
             </div>
         </div>
 
-        <!-- Content Frame -->
+        <!-- content frame -->
         <iframe class="content-frame" id="contentFrame" src=""></iframe>
     </div>
 
     <script>
         // authentication
         const correctPassword = 'rizu';
+        
+        // available years - add new years here as they're created
+        const availableYears = [
+            { year: 2024, label: "The Original" },
+            { year: 2025, label: "Coming Soon" }
+        ];
+        
+        // get the appropriate year based on whether birthday has passed
+        function getCurrentBirthdayYear() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const birthdayThisYear = new Date(currentYear, 6, 1); // July 1st (month is 0-indexed)
+            
+            // if it's before the birthday, show previous year's birthday
+            // if it's on or after the birthday, show current year's birthday
+            const targetYear = now < birthdayThisYear ? currentYear - 1 : currentYear;
+            
+            // find the most recent available year that's not in the future
+            const validYears = availableYears.map(y => y.year).filter(year => year <= targetYear);
+            return Math.max(...validYears);
+        }
+        
+        const mostRecentYear = getCurrentBirthdayYear();
+        
+        // populate navigation dynamically
+        function populateNavigation() {
+            const sideNav = document.getElementById('sideNav');
+            const navHTML = ['<h2>Birthday Archive</h2>'];
+            
+            availableYears.sort((a, b) => b.year - a.year).forEach(yearObj => {
+                const isActive = yearObj.year === getCurrentBirthdayYear() ? 'active' : '';
+                navHTML.push(`<a href="#" class="year-link ${isActive}" onclick="loadYear(${yearObj.year})">${yearObj.year} - ${yearObj.label}</a>`);
+            });
+            
+            sideNav.innerHTML = navHTML.join('');
+        }
         
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -75,7 +109,8 @@
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('mainContainer').style.display = 'block';
                 
-                loadYear(2024);
+                populateNavigation();
+                loadYear(mostRecentYear);
                 
                 updateCountdown();
                 setInterval(updateCountdown, 1000);
@@ -89,7 +124,8 @@
         if (sessionStorage.getItem('authenticated') === 'true') {
             document.getElementById('loginContainer').style.display = 'none';
             document.getElementById('mainContainer').style.display = 'block';
-            loadYear(2024);
+            populateNavigation();
+            loadYear(mostRecentYear);
             updateCountdown();
             setInterval(updateCountdown, 1000);
         }

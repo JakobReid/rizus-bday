@@ -1,4 +1,4 @@
-/* Main authentication and navigation styles */
+/* main authentication and navigation styles */
 body {
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
     overflow: hidden;
 }
 
-/* Login Screen */
+/* login screen */
 .login-container {
     background: #fff;
     padding: 3rem;
@@ -129,7 +129,7 @@ body {
     border: 2px dashed #ff69b4;
 }
 
-/* Main Content */
+/* main content */
 .main-container {
     display: none;
     width: 100%;
@@ -137,7 +137,7 @@ body {
     overflow: hidden;
 }
 
-/* Side Navigation */
+/* side navigation */
 .side-nav {
     position: fixed;
     left: 0;
@@ -222,7 +222,7 @@ body {
     color: white;
 }
 
-/* Countdown Timer */
+/* countdown timer */
 .countdown-container {
     position: fixed;
     top: 20px;
@@ -276,14 +276,14 @@ body {
     text-transform: uppercase;
 }
 
-/* Content Frame */
+/* content frame */
 .content-frame {
     width: 100%;
     height: 100%;
     border: none;
 }
 
-/* Responsive */
+/* responsive */
 @media (max-width: 768px) {
     .side-nav {
         width: 200px;
