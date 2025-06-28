@@ -73,7 +73,7 @@
         function getCurrentBirthdayYear() {
             const now = new Date();
             const currentYear = now.getFullYear();
-            const birthdayThisYear = new Date(currentYear, 6, 1); // July 1st (month is 0-indexed)
+            const birthdayThisYear = new Date(currentYear, 5, 1); // July 1st (month is 0-indexed)
             
             // if it's before the birthday, show previous year's birthday
             // if it's on or after the birthday, show current year's birthday

@@ -331,7 +331,7 @@ body {
         padding: 1rem;
         transform: none;
         border-radius: 15px;
-        z-index: 998;
+        z-index: 900;
     }
     
     .countdown-container h3 {

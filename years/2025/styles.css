@@ -153,7 +153,16 @@ body {
     font-size: 3rem;
     text-align: center;
     color: #8b6f47;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #6b5637;
     margin-bottom: 30px;
+    font-style: italic;
 }
 
 /* intro page */
@@ -187,9 +196,6 @@ body {
 
 /* photo grid */
 .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
     margin-bottom: 30px;
 }
 
@@ -200,6 +206,10 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     position: relative;
+    margin-bottom: 30px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .polaroid:hover {
@@ -519,7 +529,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .story-content {
@@ -573,7 +583,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1001;
+    z-index: 10001;
 }
 
 .gift-modal-content {
@@ -637,6 +647,7 @@ body {
 }
 
 /* responsive */
+
 @media (max-width: 768px) {
     .book-title {
         font-size: 2.5rem;

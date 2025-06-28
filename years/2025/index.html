@@ -7,6 +7,7 @@
     <title>Year in Review - Happy Birthday Rizu!</title>
     <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Caveat:wght@400;700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -40,108 +41,301 @@
                 </div>
             </div>
 
-            <!-- page 2 - photo grid -->
+            <!-- page 2 - bali -->
             <div class="scrapbook-page">
-                <h2 class="page-title">Memory Lane 📷</h2>
-                <div class="photo-grid">
-                    <div class="polaroid" onclick="showStory(1)">
-                        <img src="placeholder-photo-1.jpg" alt="Memory 1">
-                        <p class="photo-caption">Spring Adventures</p>
-                        <div class="hidden-story" id="story1">
-                            Remember when we... [Your story here]
+                <h2 class="page-title">Bali 🏝️</h2>
+                <p class="section-description">We got to have a bunch of fun trips since your last bday. I had lotsa hanging out with you in Bali</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(1)">
+                            <img src="images/01_bali/458974065_953081110169458_4854332317523365353_n.jpg" alt="Bali Memory 1">
+                            <p class="photo-caption">Rice Fields</p>
+                            <div class="hidden-story" id="story1">
+                                Bitta walking involved but saw a rabbit!
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="polaroid rotated-left" onclick="showStory(2)">
-                        <img src="placeholder-photo-2.jpg" alt="Memory 2">
-                        <p class="photo-caption">That One Time...</p>
-                        <div class="hidden-story" id="story2">
-                            I still can't believe... [Your story here]
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(2)">
+                            <img src="images/01_bali/459263964_1034534601558569_2236956929072953689_n.jpg" alt="Bali Memory 2">
+                            <p class="photo-caption">Scoot Scoot</p>
+                            <div class="hidden-story" id="story2">
+                                I AM a biker now 🏍️😎
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="polaroid rotated-right" onclick="showStory(3)">
-                        <img src="placeholder-photo-3.jpg" alt="Memory 3">
-                        <p class="photo-caption">Best Day Ever</p>
-                        <div class="hidden-story" id="story3">
-                            This was the day when... [Your story here]
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(3)">
+                            <img src="images/01_bali/460635000_548980284246432_6016708716555599064_n.jpg" alt="Bali Memory 3">
+                            <p class="photo-caption">That One Beach</p>
+                            <div class="hidden-story" id="story3">
+                                Not the same day at all, but this reminds me of the seafood we had that one time 
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="polaroid" onclick="showStory(4)">
-                        <img src="placeholder-photo-4.jpg" alt="Memory 4">
-                        <p class="photo-caption">Random Tuesday</p>
-                        <div class="hidden-story" id="story4">
-                            Sometimes the best memories... [Your story here]
-                        </div>
-                    </div>
-                </div>
-                <p class="page-note">Click on photos to read the stories!</p>
-            </div>
-
-            <!-- page 3 - travel map style -->
-            <div class="scrapbook-page">
-                <h2 class="page-title">Places We've Been 🗺️</h2>
-                <div class="travel-section">
-                    <div class="location-card">
-                        <div class="location-photo">
-                            <img src="placeholder-location-1.jpg" alt="Location 1">
-                        </div>
-                        <div class="location-details">
-                            <h3>Location Name</h3>
-                            <p class="date-stamp">March 2025</p>
-                            <p class="memory-text">What an amazing trip! We discovered...</p>
-                            <div class="ticket-stub">Admit One</div>
-                        </div>
-                    </div>
-                    
-                    <div class="location-card reverse">
-                        <div class="location-photo">
-                            <img src="placeholder-location-2.jpg" alt="Location 2">
-                        </div>
-                        <div class="location-details">
-                            <h3>Another Adventure</h3>
-                            <p class="date-stamp">May 2025</p>
-                            <p class="memory-text">The food was incredible and...</p>
-                            <div class="passport-stamp">✈️ VISITED</div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(4)">
+                            <img src="images/01_bali/461296962_924914026350345_8458755292024569384_n.jpg" alt="Bali Memory 4">
+                            <p class="photo-caption">Changu</p>
+                            <div class="hidden-story" id="story4">
+                                Making memories on the beautiful beaches...
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- page 4 - photo collage -->
+            <!-- page 3 - japan -->
             <div class="scrapbook-page">
-                <h2 class="page-title">Little Moments 💝</h2>
+                <h2 class="page-title">Japan 🗾</h2>
+                <p class="section-description">Celebrating your birthday in the Land of the Rising Sun</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(5)">
+                            <img src="images/02_japan/450259778_2143976016005101_5975420175265617133_n.jpg" alt="Japan Memory 1">
+                            <p class="photo-caption">Tokyo Nights</p>
+                            <div class="hidden-story" id="story5">
+                                The city lights never looked so beautiful...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(6)">
+                            <img src="images/02_japan/461178073_3845245342422664_6903223321663292273_n.jpg" alt="Japan Memory 2">
+                            <p class="photo-caption">Sakura Season</p>
+                            <div class="hidden-story" id="story6">
+                                Cherry blossoms and perfect moments...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(7)">
+                            <img src="images/02_japan/461537616_2329389547407587_6454310074050047891_n.jpg" alt="Japan Memory 3">
+                            <p class="photo-caption">Culture & Charm</p>
+                            <div class="hidden-story" id="story7">
+                                Immersed in the beauty of Japanese culture...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(8)">
+                            <img src="images/02_japan/462539451_1103112621545465_6943156435628313150_n.jpg" alt="Japan Memory 4">
+                            <p class="photo-caption">Adventure Time</p>
+                            <div class="hidden-story" id="story8">
+                                Every day was a new adventure...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 4 - christmas -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Christmas 2024 🎄</h2>
+                <p class="section-description">Holiday magic and festive memories with loved ones</p>
                 <div class="collage-container">
                     <div class="collage-photo small" style="top: 10%; left: 5%;">
-                        <img src="placeholder-small-1.jpg" alt="Moment 1">
+                        <img src="images/03_christmas/462567246_554072827433476_8873389402902258529_n.jpg" alt="Christmas 1">
                     </div>
                     <div class="collage-photo medium rotated-left" style="top: 5%; right: 20%;">
-                        <img src="placeholder-small-2.jpg" alt="Moment 2">
+                        <img src="images/03_christmas/462568596_2071200499978416_1942579765484828255_n.jpg" alt="Christmas 2">
                     </div>
                     <div class="collage-photo small rotated-right" style="bottom: 30%; left: 15%;">
-                        <img src="placeholder-small-3.jpg" alt="Moment 3">
+                        <img src="images/03_christmas/467462139_1818189595584461_2220582742252755392_n.jpg" alt="Christmas 3">
                     </div>
                     <div class="collage-photo medium" style="bottom: 10%; right: 10%;">
-                        <img src="placeholder-small-4.jpg" alt="Moment 4">
+                        <img src="images/03_christmas/472430549_1700238603856751_3055170080089007867_n.jpg" alt="Christmas 4">
                     </div>
                     <div class="collage-photo large rotated-left" style="top: 35%; left: 30%;">
-                        <img src="placeholder-small-5.jpg" alt="Moment 5">
+                        <img src="images/03_christmas/474143070_1178520703614384_4027263767839148881_n.jpg" alt="Christmas 5">
                     </div>
                     
                     <!-- handwritten notes -->
                     <div class="handwritten-note" style="top: 60%; right: 35%;">
-                        "best friends forever"
+                        "merry & bright"
                     </div>
                     <div class="handwritten-note" style="bottom: 50%; left: 10%;">
-                        "so much fun!"
+                        "holiday cheer!"
                     </div>
                     <div class="washi-tape tape-1"></div>
                     <div class="washi-tape tape-2"></div>
                 </div>
             </div>
 
-            <!-- page 5 - birthday message -->
+            <!-- page 5 - back home -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Back Home 🏡</h2>
+                <p class="section-description">The sweetest moments are the ones we share at home</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(9)">
+                            <img src="images/04_back_home/462547455_1246055119933196_3593680508323430428_n.jpg" alt="Home 1">
+                            <p class="photo-caption">Home Sweet Home</p>
+                            <div class="hidden-story" id="story9">
+                                Nothing beats being back together...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(10)">
+                            <img src="images/04_back_home/475811114_1171782354574500_7625592716404697533_n.jpg" alt="Home 2">
+                            <p class="photo-caption">Daily Adventures</p>
+                            <div class="hidden-story" id="story10">
+                                Making new memories at home every day...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(11)">
+                            <img src="images/04_back_home/485011347_1698242787799741_8276745904781644088_n.jpg" alt="Home 3">
+                            <p class="photo-caption">Weekend Vibes</p>
+                            <div class="hidden-story" id="story11">
+                                Perfect lazy weekends together...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(12)">
+                            <img src="images/04_back_home/494339554_718626090493480_3205591889752479993_n.jpg" alt="Home 4">
+                            <p class="photo-caption">Daily Life</p>
+                            <div class="hidden-story" id="story12">
+                                The best moments are the simple ones...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(13)">
+                            <img src="images/04_back_home/495046395_2116473425433320_7782498713177727184_n.jpg" alt="Home 5">
+                            <p class="photo-caption">Together Again</p>
+                            <div class="hidden-story" id="story13">
+                                Every moment is special when we're together...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(14)">
+                            <img src="images/04_back_home/495047291_1190421572764270_7740921542209140520_n.jpg" alt="Home 6">
+                            <p class="photo-caption">Simple Joys</p>
+                            <div class="hidden-story" id="story14">
+                                Finding happiness in the everyday moments...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(15)">
+                            <img src="images/04_back_home/495047990_685657990945905_8923539836770937142_n.jpg" alt="Home 7">
+                            <p class="photo-caption">Our Happy Place</p>
+                            <div class="hidden-story" id="story15">
+                                Home is wherever we're together...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(16)">
+                            <img src="images/04_back_home/IMG20250510183013.jpg" alt="Home 8">
+                            <p class="photo-caption">Everyday Magic</p>
+                            <div class="hidden-story" id="story16">
+                                Making memories in our everyday life...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 6 - cats -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Mochi & Phrank Chronicles 🐱</h2>
+                <p class="section-description">Your furry best friends and their endless shenanigans</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(17)">
+                            <img src="images/05_cats/452010073_1166950297893381_5957328198993338739_n.jpg" alt="Cat 1">
+                            <p class="photo-caption">Sleepy Kitties</p>
+                            <div class="hidden-story" id="story17">
+                                Always finding the coziest spots...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(18)">
+                            <img src="images/05_cats/452997340_2507631686113215_122079955056477164_n.jpg" alt="Cat 2">
+                            <p class="photo-caption">Mischief Mode</p>
+                            <div class="hidden-story" id="story18">
+                                Getting into everything as usual...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(19)">
+                            <img src="images/05_cats/475582588_1260483371912008_3808540098069498132_n.jpg" alt="Cat 3">
+                            <p class="photo-caption">Cuddle Time</p>
+                            <div class="hidden-story" id="story19">
+                                The best cuddle buddies ever...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(20)">
+                            <img src="images/05_cats/476060169_626841767061653_313623508753570250_n.jpg" alt="Cat 4">
+                            <p class="photo-caption">Cat Life</p>
+                            <div class="hidden-story" id="story20">
+                                Living their best nine lives...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(21)">
+                            <img src="images/05_cats/476386687_1284052169513599_6176879145181657582_n.jpg" alt="Cat 5">
+                            <p class="photo-caption">Purrfect Pose</p>
+                            <div class="hidden-story" id="story21">
+                                Always camera ready...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(22)">
+                            <img src="images/05_cats/476959806_556341160764364_4975601723658529545_n.jpg" alt="Cat 6">
+                            <p class="photo-caption">Playful Moments</p>
+                            <div class="hidden-story" id="story22">
+                                Endless entertainment with these two...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(23)">
+                            <img src="images/05_cats/482089397_1437288191047518_7827030800378985313_n.jpg" alt="Cat 7">
+                            <p class="photo-caption">Cat Nap Time</p>
+                            <div class="hidden-story" id="story23">
+                                Professional nappers at work...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(24)">
+                            <img src="images/05_cats/484652406_950246653763282_7116856571912621091_n.jpg" alt="Cat 8">
+                            <p class="photo-caption">Purrfect Babies</p>
+                            <div class="hidden-story" id="story24">
+                                The most photogenic fur babies ever!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 7 - birthday message -->
             <div class="scrapbook-page">
                 <div class="birthday-page">
                     <h2 class="birthday-title">Happy 24th Birthday! 🎉</h2>
@@ -169,7 +363,7 @@
                 </div>
             </div>
 
-            <!-- page 6 - gift hunt -->
+            <!-- page 8 - gift hunt -->
             <div class="scrapbook-page">
                 <div class="gift-hunt-page">
                     <h2 class="page-title">But Wait... There's More...</h2>
@@ -204,7 +398,7 @@
                 <button class="close-btn" onclick="closeGiftModal()">×</button>
                 <h3 class="gift-modal-title">Found it! 🕵️‍♀️</h3>
                 <div class="gift-modal-photo">
-                    <img src="placeholder-gift-location.jpg" alt="Gift hiding location" class="gift-location-photo">
+                    <img src="images/prezzie.png" alt="Gift hiding location" class="gift-location-photo">
                 </div>
                 <div class="gift-modal-clue">
                     <p class="clue-text">💡 [Add your hint here]</p>
