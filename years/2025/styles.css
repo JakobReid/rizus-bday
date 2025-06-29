@@ -518,30 +518,7 @@ body {
 }
 
 
-/* story modal */
-.story-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-}
-
-.story-content {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    max-width: 600px;
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-}
-
+/* close button (shared by modals) */
 .close-btn {
     position: absolute;
     top: 20px;
@@ -556,20 +533,6 @@ body {
 
 .close-btn:hover {
     color: #000;
-}
-
-.story-photo img {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto 30px;
-    display: block;
-    border-radius: 10px;
-}
-
-.story-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #3a3a3a;
 }
 
 /* gift modal */
@@ -618,30 +581,28 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-.gift-modal-clue {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 25px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.gift-modal-clue .clue-text {
-    font-family: 'Caveat', cursive;
-    font-size: 1.8rem;
-    color: #ff6b6b;
-    font-weight: bold;
-    margin: 0;
-}
-
-.gift-modal-content .treasure-hunt-note {
-    font-family: 'Caveat', cursive;
-    font-size: 2rem;
-    color: #8b6f47;
-    margin-top: 20px;
-}
-
 /* utility classes */
+.font-amatic {
+    font-family: 'Amatic SC', cursive;
+}
+
+.font-caveat {
+    font-family: 'Caveat', cursive;
+}
+
+.font-kalam {
+    font-family: 'Kalam', cursive;
+}
+
+.color-primary {
+    color: #8b6f47;
+}
+
+.color-accent {
+    color: #ff69b4;
+}
+
+/* existing utility classes */
 .hidden {
     display: none;
 }
@@ -884,151 +845,4 @@ body {
         justify-content: center;
         font-size: 1.8rem;
     }
-}
-
-/* letter styles */
-.letter-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-    position: relative;
-    width: 100%;
-}
-
-.rolled-letter {
-    background: #f5e6d3;
-    width: 300px;
-    height: 80px;
-    border-radius: 40px;
-    box-shadow: 
-        inset 0 10px 20px rgba(0, 0, 0, 0.1),
-        0 5px 15px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.rolled-letter:hover {
-    transform: scale(1.05);
-    box-shadow: 
-        inset 0 10px 20px rgba(0, 0, 0, 0.1),
-        0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.letter-ribbon {
-    position: absolute;
-    width: 60px;
-    height: 100%;
-    background: #ff69b4;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.letter-ribbon::before,
-.letter-ribbon::after {
-    content: '';
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background: #ff69b4;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.letter-ribbon::before {
-    left: -35px;
-}
-
-.letter-ribbon::after {
-    right: -35px;
-}
-
-.letter-body {
-    position: relative;
-    z-index: 1;
-}
-
-.click-hint {
-    font-family: 'Caveat', cursive;
-    font-size: 1.3rem;
-    color: #8b6f47;
-    margin: 0;
-    text-align: center;
-}
-
-.rolled-letter.unrolling {
-    animation: rollOut 0.6s ease-out forwards;
-}
-
-@keyframes rollOut {
-    0% {
-        transform: scale(1) rotate(0deg);
-    }
-    50% {
-        transform: scale(1.1) rotate(180deg);
-    }
-    100% {
-        transform: scale(0) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-.unrolled-letter {
-    background: #f5e6d3;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    margin: 0 auto;
-}
-
-.unrolled-letter.unrolling-animation {
-    animation: unrollIn 0.8s ease-out forwards;
-}
-
-@keyframes unrollIn {
-    0% {
-        transform: scaleY(0.1) translateY(-200px);
-        opacity: 0;
-    }
-    50% {
-        transform: scaleY(0.5) translateY(-100px);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scaleY(1) translateY(0);
-        opacity: 1;
-    }
-}
-
-.close-letter-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #8b6f47;
-    transition: color 0.3s;
-}
-
-.close-letter-btn:hover {
-    color: #5a4730;
-}
-
-.unrolled-letter .birthday-message {
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
 }
