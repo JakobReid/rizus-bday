@@ -588,10 +588,11 @@ body {
 
 .gift-modal-content {
     background: white;
-    padding: 40px;
+    padding: 50px;
     border-radius: 20px;
-    max-width: 500px;
-    max-height: 80vh;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
     overflow-y: auto;
     position: relative;
     text-align: center;
@@ -600,7 +601,7 @@ body {
 
 .gift-modal-title {
     font-family: 'Amatic SC', cursive;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #ff69b4;
     margin-bottom: 30px;
 }
@@ -612,7 +613,6 @@ body {
 .gift-modal-photo .gift-location-photo {
     width: 100%;
     max-width: 350px;
-    height: 250px;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -628,7 +628,7 @@ body {
 
 .gift-modal-clue .clue-text {
     font-family: 'Caveat', cursive;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     color: #ff6b6b;
     font-weight: bold;
     margin: 0;
@@ -636,7 +636,7 @@ body {
 
 .gift-modal-content .treasure-hunt-note {
     font-family: 'Caveat', cursive;
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: #8b6f47;
     margin-top: 20px;
 }
@@ -754,7 +754,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100% - 60px); /* Leave space for indicators */
+    height: calc(100% - 120px); /* Leave space for story and indicators */
 }
 
 .carousel-photo img {
@@ -796,6 +796,18 @@ body {
 
 .carousel-next {
     right: 20px;
+}
+
+.carousel-story {
+    color: white;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 60px;
+    max-width: 600px;
+    line-height: 1.6;
+    min-height: 2em;
 }
 
 .carousel-indicators {
@@ -872,4 +884,151 @@ body {
         justify-content: center;
         font-size: 1.8rem;
     }
+}
+
+/* letter styles */
+.letter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    position: relative;
+    width: 100%;
+}
+
+.rolled-letter {
+    background: #f5e6d3;
+    width: 300px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: 
+        inset 0 10px 20px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rolled-letter:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        inset 0 10px 20px rgba(0, 0, 0, 0.1),
+        0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.letter-ribbon {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background: #ff69b4;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.letter-ribbon::before,
+.letter-ribbon::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ff69b4;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.letter-ribbon::before {
+    left: -35px;
+}
+
+.letter-ribbon::after {
+    right: -35px;
+}
+
+.letter-body {
+    position: relative;
+    z-index: 1;
+}
+
+.click-hint {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: #8b6f47;
+    margin: 0;
+    text-align: center;
+}
+
+.rolled-letter.unrolling {
+    animation: rollOut 0.6s ease-out forwards;
+}
+
+@keyframes rollOut {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(180deg);
+    }
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.unrolled-letter {
+    background: #f5e6d3;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.unrolled-letter.unrolling-animation {
+    animation: unrollIn 0.8s ease-out forwards;
+}
+
+@keyframes unrollIn {
+    0% {
+        transform: scaleY(0.1) translateY(-200px);
+        opacity: 0;
+    }
+    50% {
+        transform: scaleY(0.5) translateY(-100px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scaleY(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-letter-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #8b6f47;
+    transition: color 0.3s;
+}
+
+.close-letter-btn:hover {
+    color: #5a4730;
+}
+
+.unrolled-letter .birthday-message {
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
 }

@@ -67,14 +67,14 @@
         // available years - add new years here as they're created
         const availableYears = [
             { year: 2024, label: "The Original" },
-            { year: 2025, label: "Year in Review" }
+            { year: 2025, label: "FY 24-25" }
         ];
         
         // get the appropriate year based on whether birthday has passed
         function getCurrentBirthdayYear() {
             const now = new Date();
             const currentYear = now.getFullYear();
-            const birthdayThisYear = new Date(currentYear, 5, 1); // July 1st (month is 0-indexed)
+            const birthdayThisYear = new Date(currentYear, 6, 1); // July 1st (month is 0-indexed)
             
             // if it's before the birthday, show previous year's birthday
             // if it's on or after the birthday, show current year's birthday
@@ -95,9 +95,7 @@
             availableYears.sort((a, b) => b.year - a.year).forEach(yearObj => {
                 const isActive = yearObj.year === getCurrentBirthdayYear();
                 const activeClass = isActive ? 'active' : '';
-                const prefix = isActive ? '🎂 ' : '';
-                const suffix = isActive ? ' 🎉' : '';
-                navHTML.push(`<a href="#" class="year-link ${activeClass}" onclick="loadYear(${yearObj.year}, event)">${prefix}${yearObj.year} - ${yearObj.label}${suffix}</a>`);
+                navHTML.push(`<a href="#" class="year-link ${activeClass}" onclick="loadYear(${yearObj.year}, event)">${yearObj.year} - ${yearObj.label}</a>`);
             });
             
             sideNav.innerHTML = navHTML.join('');
