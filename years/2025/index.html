@@ -365,14 +365,16 @@
             </div>
         </div>
 
-        <!-- story modal -->
-        <div class="story-modal hidden" id="storyModal">
-            <div class="story-content">
-                <button class="close-btn" onclick="closeStory()">×</button>
-                <div class="story-photo">
-                    <img id="modalPhoto" src="" alt="Memory">
+        <!-- carousel modal -->
+        <div class="carousel-modal hidden" id="carouselModal">
+            <div class="carousel-content">
+                <button class="close-btn" onclick="event.stopPropagation(); closeCarousel()">×</button>
+                <button class="carousel-nav carousel-prev" onclick="navigateCarousel(-1)">‹</button>
+                <button class="carousel-nav carousel-next" onclick="navigateCarousel(1)">›</button>
+                <div class="carousel-photo">
+                    <img id="carouselImage" src="" alt="Memory">
                 </div>
-                <div class="story-text" id="modalStory"></div>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
             </div>
         </div>
 
@@ -393,6 +395,19 @@
     </div>
 
     <script>
+        let allImages = [];
+        let currentImageIndex = 0;
+
+        // Initialize carousel on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collect all polaroid images
+            const polaroids = document.querySelectorAll('.polaroid img');
+            allImages = Array.from(polaroids).map(img => ({
+                src: img.src,
+                alt: img.alt
+            }));
+        });
+
         function openBook() {
             document.getElementById('coverPage').classList.add('hidden');
             document.getElementById('scrapbookPages').classList.remove('hidden');
@@ -401,15 +416,70 @@
         function showStory(storyId) {
             const polaroid = event.currentTarget;
             const img = polaroid.querySelector('img');
-            const story = document.getElementById(`story${storyId}`).innerHTML;
             
-            document.getElementById('modalPhoto').src = img.src;
-            document.getElementById('modalStory').innerHTML = story;
-            document.getElementById('storyModal').classList.remove('hidden');
+            // Find the index of the clicked image
+            currentImageIndex = allImages.findIndex(image => image.src === img.src);
+            
+            // Open carousel
+            openCarousel();
         }
 
-        function closeStory() {
-            document.getElementById('storyModal').classList.add('hidden');
+        function openCarousel() {
+            const modal = document.getElementById('carouselModal');
+            const carouselImage = document.getElementById('carouselImage');
+            
+            // Set current image
+            if (allImages[currentImageIndex]) {
+                carouselImage.src = allImages[currentImageIndex].src;
+                carouselImage.alt = allImages[currentImageIndex].alt;
+            }
+            
+            // Update indicators
+            updateCarouselIndicators();
+            
+            // Show modal
+            modal.classList.remove('hidden');
+        }
+
+        function closeCarousel() {
+            document.getElementById('carouselModal').classList.add('hidden');
+        }
+
+        function navigateCarousel(direction) {
+            currentImageIndex += direction;
+            
+            // Wrap around
+            if (currentImageIndex < 0) {
+                currentImageIndex = allImages.length - 1;
+            } else if (currentImageIndex >= allImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            // Update image
+            const carouselImage = document.getElementById('carouselImage');
+            carouselImage.src = allImages[currentImageIndex].src;
+            carouselImage.alt = allImages[currentImageIndex].alt;
+            
+            // Update indicators
+            updateCarouselIndicators();
+        }
+
+        function updateCarouselIndicators() {
+            const indicatorsContainer = document.getElementById('carouselIndicators');
+            indicatorsContainer.innerHTML = '';
+            
+            allImages.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = 'carousel-dot';
+                if (index === currentImageIndex) {
+                    dot.classList.add('active');
+                }
+                dot.onclick = () => {
+                    currentImageIndex = index;
+                    openCarousel();
+                };
+                indicatorsContainer.appendChild(dot);
+            });
         }
 
         function openGiftBox() {
@@ -428,9 +498,9 @@
         }
 
         // close modals on background click
-        document.getElementById('storyModal').addEventListener('click', function(e) {
+        document.getElementById('carouselModal').addEventListener('click', function(e) {
             if (e.target === this) {
-                closeStory();
+                closeCarousel();
             }
         });
 
@@ -443,8 +513,12 @@
         // keyboard navigation for modals
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                closeStory();
+                closeCarousel();
                 closeGiftModal();
+            } else if (e.key === 'ArrowLeft' && !document.getElementById('carouselModal').classList.contains('hidden')) {
+                navigateCarousel(-1);
+            } else if (e.key === 'ArrowRight' && !document.getElementById('carouselModal').classList.contains('hidden')) {
+                navigateCarousel(1);
             }
         });
     </script>

@@ -12,9 +12,33 @@
 </head>
 
 <body>
+    <!-- countdown timer (only visible on login screen) -->
+    <div class="countdown-container" id="countdownContainer">
+        <h3>Next Birthday In:</h3>
+        <div class="countdown-timer" id="countdown">
+            <div class="time-unit">
+                <span class="time-value" id="days">00</span>
+                <span class="time-label">Days</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value" id="hours">00</span>
+                <span class="time-label">Hours</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value" id="minutes">00</span>
+                <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-unit">
+                <span class="time-value" id="seconds">00</span>
+                <span class="time-label">Seconds</span>
+            </div>
+        </div>
+    </div>
+
     <!-- login container -->
     <div class="login-container" id="loginContainer">
         <h1><span class="star-emoji">✨</span> Rizu's Birthday Portal <span class="star-emoji">✨</span></h1>
+        
         <form id="loginForm">
             <input type="password" id="passwordInput" placeholder="Enter the super secret password..." required>
             <button type="submit">Enter</button>
@@ -31,29 +55,6 @@
         <nav class="side-nav collapsed" id="sideNav">
             <!-- navigation populated dynamically -->
         </nav>
-
-        <!-- countdown timer -->
-        <div class="countdown-container">
-            <h3>Next Birthday In:</h3>
-            <div class="countdown-timer" id="countdown">
-                <div class="time-unit">
-                    <span class="time-value" id="days">00</span>
-                    <span class="time-label">Days</span>
-                </div>
-                <div class="time-unit">
-                    <span class="time-value" id="hours">00</span>
-                    <span class="time-label">Hours</span>
-                </div>
-                <div class="time-unit">
-                    <span class="time-value" id="minutes">00</span>
-                    <span class="time-label">Minutes</span>
-                </div>
-                <div class="time-unit">
-                    <span class="time-value" id="seconds">00</span>
-                    <span class="time-label">Seconds</span>
-                </div>
-            </div>
-        </div>
 
         <!-- content frame -->
         <iframe class="content-frame" id="contentFrame" src=""></iframe>
@@ -110,6 +111,7 @@
                 sessionStorage.setItem('authenticated', 'true');
                 
                 document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('countdownContainer').style.display = 'none';
                 document.getElementById('mainContainer').style.display = 'block';
                 
                 populateNavigation();
@@ -126,6 +128,7 @@
         // check if already authenticated
         if (sessionStorage.getItem('authenticated') === 'true') {
             document.getElementById('loginContainer').style.display = 'none';
+            document.getElementById('countdownContainer').style.display = 'none';
             document.getElementById('mainContainer').style.display = 'block';
             populateNavigation();
             loadYear(mostRecentYear);
