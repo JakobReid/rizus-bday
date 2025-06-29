@@ -348,6 +348,10 @@ body {
     z-index: 100;
 }
 
+.collage-photo.clickable {
+    cursor: pointer;
+}
+
 .collage-photo img {
     width: 100%;
     height: 100%;

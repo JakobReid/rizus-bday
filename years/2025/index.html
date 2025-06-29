@@ -81,7 +81,7 @@
                             <img src="images/01_bali/461296962_924914026350345_8458755292024569384_n.jpg" alt="Bali Memory 4">
                             <p class="photo-caption">Changu</p>
                             <div class="hidden-story" id="story4">
-                                Making memories on the beautiful beaches...
+                                Still not sure if we could eat the ice...but still had lotsa yummy food!
                             </div>
                         </div>
                     </div>
@@ -140,20 +140,27 @@
                 <h2 class="page-title">Christmas 2024 🎄</h2>
                 <p class="section-description">FINALLY spending another Christmas together with you and the babies. Also got to have a Sawaki Christmas <3</p>
                 <div class="collage-container">
-                    <div class="collage-photo small" style="top: 10%; left: 5%;">
+                    <div class="collage-photo small clickable" style="top: 10%; left: 5%;" onclick="showChristmasPhoto(0)">
                         <img src="images/03_christmas/462567246_554072827433476_8873389402902258529_n.jpg" alt="Christmas 1">
+                        <div class="hidden-story">My photography skills on display here hehe. We got some burgers from Pops and went driving around looking at lights.</div>
                     </div>
-                    <div class="collage-photo medium rotated-left" style="top: 5%; right: 20%;">
+                    <div class="collage-photo medium rotated-left clickable" style="top: 5%; right: 20%;" onclick="showChristmasPhoto(1)">
                         <img src="images/03_christmas/462568596_2071200499978416_1942579765484828255_n.jpg" alt="Christmas 2">
+                        <div class="hidden-story">Mochi and Phrank admiring the tree decorations</div>
                     </div>
-                    <div class="collage-photo small rotated-right" style="bottom: 30%; left: 15%;">
+                    <div class="collage-photo small rotated-right clickable" style="bottom: 30%; left: 15%;" onclick="showChristmasPhoto(2)">
                         <img src="images/03_christmas/467462139_1818189595584461_2220582742252755392_n.jpg" alt="Christmas 3">
+                        <div class="hidden-story">Us in the corner for Christmas lol. </div>
                     </div>
-                    <div class="collage-photo medium" style="bottom: 10%; right: 10%;">
-                        <img src="images/03_christmas/472430549_1700238603856751_3055170080089007867_n.jpg" alt="Christmas 4">
+                    <div class="collage-photo medium clickable" style="bottom: 10%; right: 10%;" onclick="showChristmasPhoto(3)">
+                        <img src="images/03_christmas/466972404_595407232986658_3047481218197343580_n.jpg" alt="Christmas 4">
+                        <div class="hidden-story">The lights in question...</div>
                     </div>
-                    <div class="collage-photo large rotated-left" style="top: 35%; left: 30%;">
+                    <div class="collage-photo large rotated-left clickable" style="top: 35%; left: 30%;" onclick="showChristmasPhoto(4)">
                         <img src="images/03_christmas/474143070_1178520703614384_4027263767839148881_n.jpg" alt="Christmas 5">
+                        <div class="hidden-story">
+                            Family Photos!!
+                        </div>
                     </div>
                     
                     <!-- handwritten notes -->
@@ -226,6 +233,15 @@
                             <p class="photo-caption">Bday Party #2</p>
                             <div class="hidden-story" id="story14">
                                 I may only have one nice shirt...lotsa fun and hosted everyone at ours for afters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(15)">
+                            <img src="images/04_back_home/462551034_590514913399055_1054662252098984880_n.jpg" alt="Home 7">
+                            <p class="photo-caption">Blossom</p>
+                            <div class="hidden-story" id="story15">
+                                Looking STUNNING as always, fun halloween party although I was LATE cause I was singing for indians.
                             </div>
                         </div>
                     </div>
@@ -303,6 +319,59 @@
                         <div class="polaroid rotated-left" onclick="showStory(18)">
                             <img src="images/05_cats/452997340_2507631686113215_122079955056477164_n.jpg" alt="Cat 2">
                             <div class="hidden-story" id="story18">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(25)">
+                            <img src="images/05_cats/454431384_477638914878146_1964024644821240308_n.jpg" alt="Cat 9">
+                            <div class="hidden-story" id="story25">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(26)">
+                            <img src="images/05_cats/457093558_1031471568226259_3716492682257161065_n.jpg" alt="Cat 10">
+                            <div class="hidden-story" id="story26">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(27)">
+                            <img src="images/05_cats/462556006_925464335585436_2232757992400454215_n.jpg" alt="Cat 11">
+                            <div class="hidden-story" id="story27">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(28)">
+                            <img src="images/05_cats/462568249_1067727308407246_7782554375681449184_n.jpg" alt="Cat 12">
+                            <div class="hidden-story" id="story28">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(29)">
+                            <img src="images/05_cats/IMG20250220215725.jpg" alt="Cat 13">
+                            <div class="hidden-story" id="story29">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(30)">
+                            <img src="images/05_cats/IMG20250524212032.jpg" alt="Cat 14">
+                            <div class="hidden-story" id="story30">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(31)">
+                            <img src="images/05_cats/IMG20250616174530.jpg" alt="Cat 15">
+                            <div class="hidden-story" id="story31">
                             </div>
                         </div>
                     </div>
@@ -388,16 +457,39 @@
 
         // Initialize carousel on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Collect all polaroid images and their stories
-            const polaroids = document.querySelectorAll('.polaroid');
-            allImages = Array.from(polaroids).map(polaroid => {
-                const img = polaroid.querySelector('img');
-                const storyDiv = polaroid.querySelector('.hidden-story');
-                return {
-                    src: img.src,
-                    alt: img.alt,
-                    story: storyDiv ? storyDiv.innerHTML.trim() : ''
-                };
+            // Collect images by section to maintain order
+            const sections = document.querySelectorAll('.scrapbook-page');
+            allImages = [];
+            
+            sections.forEach((section, sectionIndex) => {
+                // Get polaroid images from this section
+                const polaroids = section.querySelectorAll('.polaroid');
+                const sectionPolaroids = Array.from(polaroids).map(polaroid => {
+                    const img = polaroid.querySelector('img');
+                    const storyDiv = polaroid.querySelector('.hidden-story');
+                    return {
+                        src: img.src,
+                        alt: img.alt,
+                        story: storyDiv ? storyDiv.innerHTML.trim() : '',
+                        section: sectionIndex
+                    };
+                });
+                
+                // Get collage photos from this section (Christmas photos)
+                const collagePhotos = section.querySelectorAll('.collage-photo.clickable');
+                const sectionCollagePhotos = Array.from(collagePhotos).map(photo => {
+                    const img = photo.querySelector('img');
+                    const storyDiv = photo.querySelector('.hidden-story');
+                    return {
+                        src: img.src,
+                        alt: img.alt,
+                        story: storyDiv ? storyDiv.innerHTML.trim() : '',
+                        section: sectionIndex
+                    };
+                });
+                
+                // Add all photos from this section
+                allImages.push(...sectionPolaroids, ...sectionCollagePhotos);
             });
         });
 
@@ -411,6 +503,17 @@
             const img = polaroid.querySelector('img');
             
             // Find the index of the clicked image
+            currentImageIndex = allImages.findIndex(image => image.src === img.src);
+            
+            // Open carousel
+            openCarousel();
+        }
+        
+        function showChristmasPhoto(photoIndex) {
+            const christmasPhoto = event.currentTarget;
+            const img = christmasPhoto.querySelector('img');
+            
+            // Find the index in the full image array
             currentImageIndex = allImages.findIndex(image => image.src === img.src);
             
             // Open carousel
