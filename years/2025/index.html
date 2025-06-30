@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FY 24-25 - Happy Birthday Rizu!</title>
+    <link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Caveat:wght@400;700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="scrapbook-container">
+        <!-- cover page -->
+        <div class="cover-page" id="coverPage">
+            <div class="book-cover">
+                <h1 class="book-title">FY 24-25</h1>
+                <div class="cover-decoration">
+                    <span class="emoji">📸</span>
+                    <span class="emoji">✈️</span>
+                    <span class="emoji">🎉</span>
+                </div>
+                <p class="subtitle">in case you forgot 👵</p>
+                <button class="open-book" onclick="openBook()">Open Book →</button>
+            </div>
+        </div>
+
+        <!-- scrapbook pages -->
+        <div class="scrapbook-pages hidden" id="scrapbookPages">
+            <!-- page 1 - introduction -->
+            <div class="scrapbook-page">
+                <div class="page-content">
+                    <h2 class="page-title">Happy Birthday! 🎂</h2>
+                    <div class="intro-text">
+                        <p>Can't believe this time last year you were celebrating your birthday in Japan :0</p>
+                        <p>Made you a lil something to look back on your last year in your early-20s</p>
+                    </div>
+                    <div class="doodle-hearts">♥ ♥ ♥</div>
+                </div>
+            </div>
+
+            <!-- page 2 - bali -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Bali 🏝️</h2>
+                <p class="section-description">We got to have a bunch of fun trips since your last bday. I had lotsa hanging out with you in Bali</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(1)">
+                            <img src="images/01_bali/458974065_953081110169458_4854332317523365353_n.jpg" alt="Bali Memory 1">
+                            <p class="photo-caption">Rice Fields</p>
+                            <div class="hidden-story" id="story1">
+                                Bitta walking involved but saw a rabbit!
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(2)">
+                            <img src="images/01_bali/459263964_1034534601558569_2236956929072953689_n.jpg" alt="Bali Memory 2">
+                            <p class="photo-caption">Scoot Scoot</p>
+                            <div class="hidden-story" id="story2">
+                                I AM a biker now 🏍️😎
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(3)">
+                            <img src="images/01_bali/460635000_548980284246432_6016708716555599064_n.jpg" alt="Bali Memory 3">
+                            <p class="photo-caption">That One Beach</p>
+                            <div class="hidden-story" id="story3">
+                                Not the same day at all, but this reminds me of the seafood we had that one time 
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(4)">
+                            <img src="images/01_bali/461296962_924914026350345_8458755292024569384_n.jpg" alt="Bali Memory 4">
+                            <p class="photo-caption">Changu</p>
+                            <div class="hidden-story" id="story4">
+                                Still not sure if we could eat the ice...but still had lotsa yummy food!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 3 - japan -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Japan 🗾</h2>
+                <p class="section-description">Let's go on another Japan trip ASAP!</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(5)">
+                            <img src="images/02_japan/450259778_2143976016005101_5975420175265617133_n.jpg" alt="Japan Memory 1">
+                            <p class="photo-caption">Airbnb Time</p>
+                            <div class="hidden-story" id="story5">
+                                The japan airbnbs are always fun. Tiny but we can cook yummy food or have a konbini haul <3
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(6)">
+                            <img src="images/02_japan/461178073_3845245342422664_6903223321663292273_n.jpg" alt="Japan Memory 2">
+                            <p class="photo-caption">Hotel Bachama</p>
+                            <div class="hidden-story" id="story6">
+                                omg look at this FEAST. I love going to Toyama with you and hanging out with Bachama. We gotta go again soon! (and get egg soft serve)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(7)">
+                            <img src="images/02_japan/461537616_2329389547407587_6454310074050047891_n.jpg" alt="Japan Memory 3">
+                            <p class="photo-caption">Shinkansen</p>
+                            <div class="hidden-story" id="story7">
+                                Remember when we didn't have seats for the trip to Toyama ;(. At least I got to hang out with you while you fell asleep hehe.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(8)">
+                            <img src="images/02_japan/462539451_1103112621545465_6943156435628313150_n.jpg" alt="Japan Memory 4">
+                            <p class="photo-caption">Afternoon Disneyland</p>
+                            <div class="hidden-story" id="story8">
+                                Yummy food from a bunch of different places and going on rides with not so big lines. Fun fun fun!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 4 - christmas -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Christmas 2024 🎄</h2>
+                <p class="section-description">FINALLY spending another Christmas together with you and the babies. Also got to have a Sawaki Christmas <3</p>
+                <div class="collage-container">
+                    <div class="collage-photo small clickable" style="top: 10%; left: 5%;" onclick="showChristmasPhoto(0)">
+                        <img src="images/03_christmas/462567246_554072827433476_8873389402902258529_n.jpg" alt="Christmas 1">
+                        <div class="hidden-story">My photography skills on display here hehe. We got some burgers from Pops and went driving around looking at lights.</div>
+                    </div>
+                    <div class="collage-photo medium rotated-left clickable" style="top: 5%; right: 20%;" onclick="showChristmasPhoto(1)">
+                        <img src="images/03_christmas/462568596_2071200499978416_1942579765484828255_n.jpg" alt="Christmas 2">
+                        <div class="hidden-story">Mochi and Phrank admiring the tree decorations</div>
+                    </div>
+                    <div class="collage-photo small rotated-right clickable" style="bottom: 30%; left: 15%;" onclick="showChristmasPhoto(2)">
+                        <img src="images/03_christmas/467462139_1818189595584461_2220582742252755392_n.jpg" alt="Christmas 3">
+                        <div class="hidden-story">Us in the corner for Christmas lol. </div>
+                    </div>
+                    <div class="collage-photo medium clickable" style="bottom: 10%; right: 10%;" onclick="showChristmasPhoto(3)">
+                        <img src="images/03_christmas/466972404_595407232986658_3047481218197343580_n.jpg" alt="Christmas 4">
+                        <div class="hidden-story">The lights in question...</div>
+                    </div>
+                    <div class="collage-photo large rotated-left clickable" style="top: 35%; left: 30%;" onclick="showChristmasPhoto(4)">
+                        <img src="images/03_christmas/474143070_1178520703614384_4027263767839148881_n.jpg" alt="Christmas 5">
+                        <div class="hidden-story">
+                            Family Photos!!
+                        </div>
+                    </div>
+                    
+                    <!-- handwritten notes -->
+                    <div class="handwritten-note" style="top: 60%; right: 35%;">
+                        "merry & bright"
+                    </div>
+                    <div class="handwritten-note" style="bottom: 50%; left: 10%;">
+                        "are you ready to jingle your bells?"
+                    </div>
+                    <div class="washi-tape tape-1"></div>
+                    <div class="washi-tape tape-2"></div>
+                </div>
+            </div>
+
+            <!-- page 5 - back home -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Back Home 🏡</h2>
+                <p class="section-description">Back and better than ever baby 😎</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(9)">
+                            <img src="images/04_back_home/462547455_1246055119933196_3593680508323430428_n.jpg" alt="Home 1">
+                            <p class="photo-caption">Bad Friends</p>
+                            <div class="hidden-story" id="story9">
+                                This was a hectic show hahah, but thanks for bringing me it was so fun!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(10)">
+                            <img src="images/04_back_home/475811114_1171782354574500_7625592716404697533_n.jpg" alt="Home 2">
+                            <p class="photo-caption">NEW BED</p>
+                            <div class="hidden-story" id="story10">
+                                We welcomed our new bed into the family <3. Still need a new doona though...
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(11)">
+                            <img src="images/04_back_home/485011347_1698242787799741_8276745904781644088_n.jpg" alt="Home 3">
+                            <p class="photo-caption">Bday Party #1</p>
+                            <div class="hidden-story" id="story11">
+                                I'm glad we can head to bday parties together again!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(12)">
+                            <img src="images/04_back_home/494339554_718626090493480_3205591889752479993_n.jpg" alt="Home 4">
+                            <p class="photo-caption">Hosting Nico</p>
+                            <div class="hidden-story" id="story12">
+                                Momo and Phrank got to see their auntie again, also managed to survive a 5k run. Also also (not pictured) we had a yum Korean dinner at home.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(13)">
+                            <img src="images/04_back_home/495046395_2116473425433320_7782498713177727184_n.jpg" alt="Home 5">
+                            <p class="photo-caption">Chanoyu</p>
+                            <div class="hidden-story" id="story13">
+                                Not much to say except that this matcha was fire, cafe dates back on the table.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(14)">
+                            <img src="images/04_back_home/495047291_1190421572764270_7740921542209140520_n.jpg" alt="Home 6">
+                            <p class="photo-caption">Bday Party #2</p>
+                            <div class="hidden-story" id="story14">
+                                I may only have one nice shirt...lotsa fun and hosted everyone at ours for afters.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(15)">
+                            <img src="images/04_back_home/462551034_590514913399055_1054662252098984880_n.jpg" alt="Home 7">
+                            <p class="photo-caption">Blossom</p>
+                            <div class="hidden-story" id="story15">
+                                Looking STUNNING as always, fun halloween party although I was LATE cause I was singing for indians.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(16)">
+                            <img src="images/04_back_home/IMG20250510183013.jpg" alt="Home 8">
+                            <p class="photo-caption">Hanging Out In The Kitchen</p>
+                            <div class="hidden-story" id="story16">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 6 - cats -->
+            <div class="scrapbook-page">
+                <h2 class="page-title">Bonus - Mochi & Phrank Pics</h2>
+                <p class="section-description">Here are some pics of the kitties</p>
+                <div class="photo-grid row">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(22)">
+                            <img src="images/05_cats/476959806_556341160764364_4975601723658529545_n.jpg" alt="Cat 6">
+                            <div class="hidden-story" id="story22">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(20)">
+                            <img src="images/05_cats/476060169_626841767061653_313623508753570250_n.jpg" alt="Cat 4">
+                            <div class="hidden-story" id="story20">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(24)">
+                            <img src="images/05_cats/484652406_950246653763282_7116856571912621091_n.jpg" alt="Cat 8">
+                            <div class="hidden-story" id="story24">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(17)">
+                            <img src="images/05_cats/452010073_1166950297893381_5957328198993338739_n.jpg" alt="Cat 1">
+                            <div class="hidden-story" id="story17">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(19)">
+                            <img src="images/05_cats/475582588_1260483371912008_3808540098069498132_n.jpg" alt="Cat 3">
+                            <div class="hidden-story" id="story19">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(23)">
+                            <img src="images/05_cats/482089397_1437288191047518_7827030800378985313_n.jpg" alt="Cat 7">
+                            <div class="hidden-story" id="story23">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(21)">
+                            <img src="images/05_cats/476386687_1284052169513599_6176879145181657582_n.jpg" alt="Cat 5">
+                            <div class="hidden-story" id="story21">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(18)">
+                            <img src="images/05_cats/452997340_2507631686113215_122079955056477164_n.jpg" alt="Cat 2">
+                            <div class="hidden-story" id="story18">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(25)">
+                            <img src="images/05_cats/454431384_477638914878146_1964024644821240308_n.jpg" alt="Cat 9">
+                            <div class="hidden-story" id="story25">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(26)">
+                            <img src="images/05_cats/457093558_1031471568226259_3716492682257161065_n.jpg" alt="Cat 10">
+                            <div class="hidden-story" id="story26">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(27)">
+                            <img src="images/05_cats/462556006_925464335585436_2232757992400454215_n.jpg" alt="Cat 11">
+                            <div class="hidden-story" id="story27">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(28)">
+                            <img src="images/05_cats/462568249_1067727308407246_7782554375681449184_n.jpg" alt="Cat 12">
+                            <div class="hidden-story" id="story28">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="photo-grid row" style="margin-top: 2rem;">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-right" onclick="showStory(29)">
+                            <img src="images/05_cats/IMG20250220215725.jpg" alt="Cat 13">
+                            <div class="hidden-story" id="story29">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid" onclick="showStory(30)">
+                            <img src="images/05_cats/IMG20250524212032.jpg" alt="Cat 14">
+                            <div class="hidden-story" id="story30">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                        <div class="polaroid rotated-left" onclick="showStory(31)">
+                            <img src="images/05_cats/IMG20250616174530.jpg" alt="Cat 15">
+                            <div class="hidden-story" id="story31">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 7 - birthday message -->
+            <div class="scrapbook-page">
+                <div class="birthday-page">
+                    <h2 class="birthday-title">Happy 24th Birthday! 🎉</h2>
+                    <div class="birthday-message">
+                        <p>Dear Rizu,</p>
+                        <p>
+                            I hope you're having a very special day today and that Mochi and Phrank are being extra nice. I wish I could celebrate with you in person but I'll have to wait until you come meet me in texas 🤠.
+                        </p>
+                        <p>
+                            Thinking back, the last bday message I wrote for you was when you were in Japan. 
+                            It's still pretty crazy to think that we were apart for more than a year - probably because we fit right back into place when you got back.
+                            I'm loving getting to live with you again and hanging out with our friends and family.
+                        </p>
+                        <p>
+                            Thanks for always being so sweet and thoughtful and pretty and amazing and everything.
+                        </p>
+                        <p class="signature">Love,<br>Jakob</p>
+                    </div>
+                    <div class="birthday-doodles">
+                        <span>🎂</span>
+                        <span>🎈</span>
+                        <span>🎁</span>
+                        <span>✨</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- page 8 - gift hunt -->
+            <div class="scrapbook-page">
+                <div class="gift-hunt-page">
+                    <h2 class="page-title">But Wait... There's More...</h2>
+                    <div class="gift-intro">
+                        <p>I got ya a lil something too</p>
+                    </div>
+                    
+                    <div class="gift-box-container">
+                        <div class="gift-box" id="giftBox" onclick="openGiftBox()">
+                            <img src="./images/gift_box_heart.png" alt="Gift Box" class="gift-box-image">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- carousel modal -->
+        <div class="carousel-modal hidden" id="carouselModal">
+            <div class="carousel-content">
+                <button class="close-btn" onclick="event.stopPropagation(); closeCarousel()">×</button>
+                <button class="carousel-nav carousel-prev" onclick="navigateCarousel(-1)">‹</button>
+                <button class="carousel-nav carousel-next" onclick="navigateCarousel(1)">›</button>
+                <div class="carousel-story" id="carouselStory"></div>
+                <div class="carousel-photo">
+                    <img id="carouselImage" src="" alt="Memory">
+                </div>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </div>
+        </div>
+
+        <!-- gift location modal -->
+        <div class="gift-modal hidden" id="giftModal">
+            <div class="gift-modal-content">
+                <button class="close-btn" onclick="closeGiftModal()">×</button>
+                <h3 class="gift-modal-title">Prezzie Time</h3>
+                <p>You should check at the VERY back of the closet 🤔</p>
+                <div class="gift-modal-photo">
+                    <img src="images/prezzie.png" alt="Gift hiding location" class="gift-location-photo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allImages = [];
+        let currentImageIndex = 0;
+
+        // Initialize carousel on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Collect images by section to maintain order
+            const sections = document.querySelectorAll('.scrapbook-page');
+            allImages = [];
+            
+            sections.forEach((section, sectionIndex) => {
+                // Get polaroid images from this section
+                const polaroids = section.querySelectorAll('.polaroid');
+                const sectionPolaroids = Array.from(polaroids).map(polaroid => {
+                    const img = polaroid.querySelector('img');
+                    const storyDiv = polaroid.querySelector('.hidden-story');
+                    return {
+                        src: img.src,
+                        alt: img.alt,
+                        story: storyDiv ? storyDiv.innerHTML.trim() : '',
+                        section: sectionIndex
+                    };
+                });
+                
+                // Get collage photos from this section (Christmas photos)
+                const collagePhotos = section.querySelectorAll('.collage-photo.clickable');
+                const sectionCollagePhotos = Array.from(collagePhotos).map(photo => {
+                    const img = photo.querySelector('img');
+                    const storyDiv = photo.querySelector('.hidden-story');
+                    return {
+                        src: img.src,
+                        alt: img.alt,
+                        story: storyDiv ? storyDiv.innerHTML.trim() : '',
+                        section: sectionIndex
+                    };
+                });
+                
+                // Add all photos from this section
+                allImages.push(...sectionPolaroids, ...sectionCollagePhotos);
+            });
+        });
+
+        function openBook() {
+            document.getElementById('coverPage').classList.add('hidden');
+            document.getElementById('scrapbookPages').classList.remove('hidden');
+        }
+
+        function showStory(storyId) {
+            const polaroid = event.currentTarget;
+            const img = polaroid.querySelector('img');
+            
+            // Find the index of the clicked image
+            currentImageIndex = allImages.findIndex(image => image.src === img.src);
+            
+            // Open carousel
+            openCarousel();
+        }
+        
+        function showChristmasPhoto(photoIndex) {
+            const christmasPhoto = event.currentTarget;
+            const img = christmasPhoto.querySelector('img');
+            
+            // Find the index in the full image array
+            currentImageIndex = allImages.findIndex(image => image.src === img.src);
+            
+            // Open carousel
+            openCarousel();
+        }
+
+        function openCarousel() {
+            const modal = document.getElementById('carouselModal');
+            const carouselImage = document.getElementById('carouselImage');
+            const carouselStory = document.getElementById('carouselStory');
+            
+            // Set current image and story
+            if (allImages[currentImageIndex]) {
+                carouselImage.src = allImages[currentImageIndex].src;
+                carouselImage.alt = allImages[currentImageIndex].alt;
+                carouselStory.innerHTML = allImages[currentImageIndex].story || '';
+            }
+            
+            // Update indicators
+            updateCarouselIndicators();
+            
+            // Show modal
+            modal.classList.remove('hidden');
+        }
+
+        function closeCarousel() {
+            document.getElementById('carouselModal').classList.add('hidden');
+        }
+
+        function navigateCarousel(direction) {
+            currentImageIndex += direction;
+            
+            // Wrap around
+            if (currentImageIndex < 0) {
+                currentImageIndex = allImages.length - 1;
+            } else if (currentImageIndex >= allImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            // Update image and story
+            const carouselImage = document.getElementById('carouselImage');
+            const carouselStory = document.getElementById('carouselStory');
+            carouselImage.src = allImages[currentImageIndex].src;
+            carouselImage.alt = allImages[currentImageIndex].alt;
+            carouselStory.innerHTML = allImages[currentImageIndex].story || '';
+            
+            // Update indicators
+            updateCarouselIndicators();
+        }
+
+        function updateCarouselIndicators() {
+            const indicatorsContainer = document.getElementById('carouselIndicators');
+            indicatorsContainer.innerHTML = '';
+            
+            allImages.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = 'carousel-dot';
+                if (index === currentImageIndex) {
+                    dot.classList.add('active');
+                }
+                dot.onclick = () => {
+                    currentImageIndex = index;
+                    openCarousel();
+                };
+                indicatorsContainer.appendChild(dot);
+            });
+        }
+
+        function openGiftBox() {
+            const giftBox = document.getElementById('giftBox');
+            const giftModal = document.getElementById('giftModal');
+            
+            // add opening animation to gift box
+            giftBox.classList.add('opening');
+            
+            // show the gift modal immediately
+            giftModal.classList.remove('hidden');
+        }
+
+        function closeGiftModal() {
+            document.getElementById('giftModal').classList.add('hidden');
+        }
+
+        // close modals on background click
+        document.getElementById('carouselModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCarousel();
+            }
+        });
+
+        document.getElementById('giftModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGiftModal();
+            }
+        });
+
+        // keyboard navigation for modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeCarousel();
+                closeGiftModal();
+            } else if (e.key === 'ArrowLeft' && !document.getElementById('carouselModal').classList.contains('hidden')) {
+                navigateCarousel(-1);
+            } else if (e.key === 'ArrowRight' && !document.getElementById('carouselModal').classList.contains('hidden')) {
+                navigateCarousel(1);
+            }
+        });
+
+    </script>
+</body>
+
+</html>

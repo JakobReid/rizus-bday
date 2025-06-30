@@ -1,0 +1,852 @@
+/* scrapbook theme styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5e6d3;
+    background-image: 
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(139, 69, 19, 0.03) 50px, rgba(139, 69, 19, 0.03) 51px),
+        repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(139, 69, 19, 0.03) 50px, rgba(139, 69, 19, 0.03) 51px);
+    font-family: 'Kalam', cursive;
+    color: #3a3a3a;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.scrapbook-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* cover page */
+.cover-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.book-cover {
+    background: #8b6f47;
+    padding: 60px 80px;
+    border-radius: 10px;
+    box-shadow: 
+        0 0 0 5px #6b5637,
+        0 10px 30px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 2px #a08060;
+    text-align: center;
+    position: relative;
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.3s;
+}
+
+.book-cover:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.book-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 4rem;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.cover-decoration {
+    margin: 20px 0;
+}
+
+.emoji {
+    font-size: 2rem;
+    margin: 0 10px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.emoji:nth-child(2) { animation-delay: 1s; }
+.emoji:nth-child(3) { animation-delay: 2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.open-book {
+    font-family: 'Kalam', cursive;
+    font-size: 1.2rem;
+    background: #ffd700;
+    color: #3a3a3a;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.open-book:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* scrapbook pages */
+.scrapbook-pages {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    position: relative;
+}
+
+.scrapbook-page {
+    margin-bottom: 100px;
+    padding: 40px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: pageAppear 0.8s ease-out forwards;
+}
+
+.scrapbook-page:nth-child(1) { animation-delay: 0.2s; }
+.scrapbook-page:nth-child(2) { animation-delay: 0.4s; }
+.scrapbook-page:nth-child(3) { animation-delay: 0.6s; }
+.scrapbook-page:nth-child(4) { animation-delay: 0.8s; }
+.scrapbook-page:nth-child(5) { animation-delay: 1.0s; }
+
+@keyframes pageAppear {
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* page separators */
+.scrapbook-page:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -50px;
+    width: 100px;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        #8b6f47,
+        #8b6f47 10px,
+        transparent 10px,
+        transparent 20px
+    );
+}
+
+.page-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 3rem;
+    text-align: center;
+    color: #8b6f47;
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #6b5637;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* intro page */
+.page-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    line-height: 2;
+    margin: 40px 0;
+}
+
+.intro-text p {
+    margin-bottom: 20px;
+}
+
+.doodle-hearts {
+    font-size: 2rem;
+    color: #ff69b4;
+    margin-top: 40px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* photo grid */
+.photo-grid {
+    margin-bottom: 30px;
+}
+
+.polaroid {
+    background: white;
+    padding: 15px 15px 60px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.polaroid:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.rotated-left {
+    transform: rotate(-5deg);
+}
+
+.rotated-right {
+    transform: rotate(5deg);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 15px;
+    color: #3a3a3a;
+}
+
+.hidden-story {
+    display: none;
+}
+
+.page-note {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    color: #8b6f47;
+    font-style: italic;
+}
+
+/* travel section */
+.travel-section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.location-card {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.location-card.reverse {
+    flex-direction: row-reverse;
+}
+
+.location-photo {
+    flex: 0 0 300px;
+}
+
+.location-photo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.location-details {
+    flex: 1;
+}
+
+.location-details h3 {
+    font-family: 'Amatic SC', cursive;
+    font-size: 2rem;
+    color: #8b6f47;
+    margin-bottom: 10px;
+}
+
+.date-stamp {
+    font-family: 'Caveat', cursive;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.memory-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.ticket-stub, .passport-stamp {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: white;
+    transform: rotate(-5deg);
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.passport-stamp {
+    background: #4ecdc4;
+    transform: rotate(5deg);
+}
+
+/* collage page */
+.collage-container {
+    position: relative;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.collage-photo {
+    position: absolute;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.collage-photo:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 100;
+}
+
+.collage-photo.clickable {
+    cursor: pointer;
+}
+
+.collage-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.small {
+    width: 120px;
+    height: 120px;
+}
+
+.medium {
+    width: 180px;
+    height: 180px;
+}
+
+.large {
+    width: 250px;
+    height: 200px;
+}
+
+.handwritten-note {
+    position: absolute;
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #ff69b4;
+    transform: rotate(-10deg);
+}
+
+.washi-tape {
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffd700,
+        #ffd700 10px,
+        #ff69b4 10px,
+        #ff69b4 20px
+    );
+    opacity: 0.6;
+}
+
+.tape-1 {
+    top: 20px;
+    left: 50px;
+    transform: rotate(15deg);
+}
+
+.tape-2 {
+    bottom: 40px;
+    right: 80px;
+    transform: rotate(-20deg);
+}
+
+/* birthday page */
+.birthday-page {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.birthday-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 3.5rem;
+    color: #ff69b4;
+    margin-bottom: 40px;
+}
+
+.birthday-message {
+    text-align: left;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    line-height: 2;
+}
+
+.birthday-message p {
+    margin-bottom: 20px;
+}
+
+.signature {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    color: #8b6f47;
+}
+
+.birthday-doodles {
+    margin-top: 40px;
+    font-size: 3rem;
+}
+
+.birthday-doodles span {
+    display: inline-block;
+    margin: 0 15px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.birthday-doodles span:nth-child(2) { animation-delay: 0.5s; }
+.birthday-doodles span:nth-child(3) { animation-delay: 1s; }
+.birthday-doodles span:nth-child(4) { animation-delay: 1.5s; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* gift hunt page */
+.gift-hunt-page {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gift-intro {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin: 20px 0 40px;
+    color: #6b5637;
+}
+
+.gift-box-container {
+    margin: 50px 0;
+}
+
+.gift-box {
+    margin: 0 auto 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.gift-box:hover {
+    transform: scale(1.1);
+}
+
+.gift-box-image {
+    width: 300px;
+    height: auto;
+    max-width: 90vw;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+    transition: all 0.3s ease;
+}
+
+.gift-box:hover .gift-box-image {
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+.gift-box.opening {
+    animation: giftBoxOpen 0.8s ease-out;
+}
+
+@keyframes giftBoxOpen {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1.1) rotate(0deg); }
+}
+
+.gift-instruction {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    color: #8b6f47;
+    margin-top: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+
+/* close button (shared by modals) */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* gift modal */
+.gift-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10001;
+}
+
+.gift-modal-content {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.gift-modal-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 3rem;
+    color: #ff69b4;
+    margin-bottom: 30px;
+}
+
+.gift-modal-photo {
+    margin: 20px 0;
+}
+
+.gift-modal-photo .gift-location-photo {
+    width: 100%;
+    max-width: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* utility classes */
+.font-amatic {
+    font-family: 'Amatic SC', cursive;
+}
+
+.font-caveat {
+    font-family: 'Caveat', cursive;
+}
+
+.font-kalam {
+    font-family: 'Kalam', cursive;
+}
+
+.color-primary {
+    color: #8b6f47;
+}
+
+.color-accent {
+    color: #ff69b4;
+}
+
+/* existing utility classes */
+.hidden {
+    display: none;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+    .book-title {
+        font-size: 2.5rem;
+    }
+    
+    .book-cover {
+        padding: 40px;
+    }
+    
+    .location-card,
+    .location-card.reverse {
+        flex-direction: column;
+    }
+    
+    .location-photo {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .collage-container {
+        height: auto;
+        min-height: 400px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+    
+    .collage-photo {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        margin: 0 auto;
+        flex-shrink: 0;
+    }
+    
+    .collage-photo.small {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .collage-photo.medium {
+        width: 200px;
+        height: 160px;
+    }
+    
+    .collage-photo.large {
+        width: 250px;
+        height: 200px;
+    }
+    
+    .handwritten-note {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: rotate(-5deg) !important;
+        text-align: center;
+        margin: 10px auto;
+    }
+    
+    .washi-tape {
+        display: none;
+    }
+}
+
+/* carousel modal */
+.carousel-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.carousel-modal.hidden {
+    display: none !important;
+}
+
+.carousel-content {
+    position: relative;
+    width: 80vw;
+    max-width: 1200px;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 120px); /* Leave space for story and indicators */
+}
+
+.carousel-photo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 3rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 20px;
+}
+
+.carousel-next {
+    right: 20px;
+}
+
+.carousel-story {
+    color: white;
+    font-family: 'Caveat', cursive;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0 60px;
+    max-width: 600px;
+    line-height: 1.6;
+    min-height: 2em;
+}
+
+.carousel-indicators {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.carousel-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* close button for carousel */
+.carousel-content .close-btn {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    color: white;
+    font-size: 2.5rem;
+    z-index: 10001;
+}
+
+.carousel-content .close-btn:hover {
+    color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+/* responsive carousel */
+@media (max-width: 768px) {
+    .carousel-content {
+        width: 95vw;
+        height: 80vh;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 2rem;
+    }
+    
+    .carousel-prev {
+        left: 10px;
+    }
+    
+    .carousel-next {
+        right: 10px;
+    }
+    
+    .carousel-content .close-btn {
+        top: 10px;
+        right: 10px;
+        background: rgba(0, 0, 0, 0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+    }
+}
