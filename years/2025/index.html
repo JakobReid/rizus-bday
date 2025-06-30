@@ -621,6 +621,35 @@
                 navigateCarousel(1);
             }
         });
+        
+        // Touch support for carousel
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const carouselModal = document.getElementById('carouselModal');
+        
+        carouselModal.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        carouselModal.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swiped left - next image
+                    navigateCarousel(1);
+                } else {
+                    // Swiped right - previous image
+                    navigateCarousel(-1);
+                }
+            }
+        }
 
     </script>
 </body>
