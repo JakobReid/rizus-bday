@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizumon · Happy Birthday Rizu!</title>
+<link rel="icon" href="../../assets/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="assets/shared.css">
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-gif"></div>
+  <div class="scrim"></div>
+
+  <main class="stage">
+    <div class="ball"><img class="ball-png" src="assets/pokeball.png" alt=""></div>
+    <h1 class="title">Happy Birthday!</h1>
+    <div class="ribbon"><img class="star-px" src="assets/sprites/star-coral.png" alt=""> 2026 <img class="star-px" src="assets/sprites/star-coral.png" alt=""></div>
+  </main>
+
+  <!-- Jakob: click to talk -->
+  <div class="bob-wrap">
+    <div class="bob-hint" id="bobHint" style="display:none">click me!</div>
+    <div class="bob" id="bob" role="button" tabindex="0" aria-label="Talk to Jakob"></div>
+    <div class="bob-shadow"></div>
+  </div>
+
+  <!-- RPG dialog, hidden until Jakob is clicked. -->
+  <div class="dialog" data-dialogue data-gated>
+    <span class="nametag">JAKOB</span>
+    <button class="dlg-close" id="dlgClose" aria-label="Close">✕</button>
+    <div class="dlg-body">
+      <p class="msg">Hi there beautiful, Happy Happy Birthday!</p>
+      <p class="msg">I was thinking of what to do for this year's theme, and I remembered how much fun it was to play Pokémon together.</p>
+      <p class="msg">So I'd like to take you on a little Pokémon adventure of your own. Hope you like it! Love you <3</p>
+      <div class="msg msg--final">
+        <a class="btn btn--cta" href="#"><span class="ico"></span> Download &amp; Play</a>
+      </div>
+    </div>
+    <div class="dlg-foot">
+      <div class="dlg-nav">
+        <button class="back-btn"><span class="arw"></span> BACK</button>
+        <button class="next-btn">NEXT <span class="arw"></span></button>
+        <span class="dlg-dots"></span>
+      </div>
+    </div>
+    <span class="dlg-arrow"></span>
+  </div>
+
+  <div class="particles"></div>
+  <div class="confetti" id="confetti"></div>
+
+  <script>window.RIZ_CONFIG = { particle: 'sparkle', grass: 0, parallax: false };</script>
+  <script src="assets/scene.js"></script>
+  <script>
+    /* reveal glue: click Jakob → confetti + title pop + open dialog above his head */
+    (function () {
+      const bob = document.getElementById('bob');
+      const hint = document.getElementById('bobHint');
+      const dlg = document.querySelector('.dialog[data-gated]');
+      const stage = document.querySelector('.stage');
+      const cbox = document.getElementById('confetti');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let revealed = false;
+
+      function burst(cx, cy) {
+        if (reduce || !cbox) return;
+        const colors = ['#ff8fa3', '#ffe08a', '#7fd07f', '#7cc0ee', '#ffbcd0', '#ff9a6b', '#fff3c4'];
+        const parts = [];
+        for (let i = 0; i < 70; i++) {
+          const el = document.createElement('span'); el.className = 'cfetti';
+          const w = 4 + Math.random() * 7;
+          el.style.width = w.toFixed(1) + 'px';
+          el.style.height = (w * (0.5 + Math.random() * 0.9)).toFixed(1) + 'px';
+          el.style.background = colors[(Math.random() * colors.length) | 0];
+          cbox.appendChild(el);
+          const ang = -Math.PI / 2 + (Math.random() - 0.5) * Math.PI * 1.2;
+          const sp = 4 + Math.random() * 8.5;
+          parts.push({ el, x: cx, y: cy, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp - 2, rot: Math.random() * 360, vr: (Math.random() - 0.5) * 22, life: 0, max: 80 + Math.random() * 55 });
+        }
+        (function anim() {
+          let alive = false;
+          for (const p of parts) {
+            if (p.life > p.max) { if (p.el.parentNode) p.el.remove(); continue; }
+            alive = true; p.life++;
+            p.vy += 0.32; p.vx *= 0.99;
+            p.x += p.vx; p.y += p.vy; p.rot += p.vr;
+            const op = p.life > p.max * 0.65 ? Math.max(0, 1 - (p.life - p.max * 0.65) / (p.max * 0.35)) : 1;
+            p.el.style.transform = 'translate(' + p.x.toFixed(1) + 'px,' + p.y.toFixed(1) + 'px) rotate(' + p.rot.toFixed(0) + 'deg)';
+            p.el.style.opacity = op;
+          }
+          if (alive) requestAnimationFrame(anim);
+        })();
+      }
+
+      function showDialog() {
+        const br = bob.getBoundingClientRect();
+        if (dlg) { dlg.style.bottom = Math.round(window.innerHeight - (br.top + 18) + 30) + 'px'; }
+        if (window.RIZ_openDialogue) window.RIZ_openDialogue();
+      }
+      function openBob() {
+        if (hint) hint.style.display = 'none';
+        if (!revealed) {
+          revealed = true;
+          stage.classList.add('revealed');
+          document.body.classList.add('revealed');
+          const br = bob.getBoundingClientRect();
+          burst(br.left + br.width / 2, br.top + 8);   // POW from Jakob
+          setTimeout(showDialog, 480);                 // dialog a beat later
+        } else {
+          showDialog();
+        }
+      }
+      bob.addEventListener('click', openBob);
+      bob.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openBob(); }
+      });
+      const close = document.getElementById('dlgClose');
+      if (close) close.addEventListener('click', () => { if (window.RIZ_closeDialogue) window.RIZ_closeDialogue(); });
+    })();
+  </script>
+  <script>
+    /* Jakob entrance: walk in from left (facing right) → spin in place → settle facing front.
+       Single combined sheet (walkR 0-3, front 4-7, left 8, up 9) — only background-position
+       changes, never the image, so he never blinks out. No jump frames in this sheet. */
+    (function () {
+      const wrap = document.querySelector('.bob-wrap');
+      const bob = document.getElementById('bob');
+      const hint = document.getElementById('bobHint');
+      const S = 3, CW = 32, CH = 48, FW = CW * S, FH = CH * S, TOTAL = 10;
+      const SHEET = 'assets/sprites/jakob-sheet.png';
+      bob.style.backgroundImage = 'url(' + SHEET + ')';
+      bob.style.backgroundSize = (TOTAL * FW) + 'px ' + FH + 'px';
+      function paint(i) { bob.style.backgroundPositionX = (-i * FW) + 'px'; }
+
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const centerLeft = () => Math.round((innerWidth - FW) / 2);
+      const START = () => -FW - 24;
+      const WALK = [0, 1, 2, 3], WALK_FPS = 5;
+      const FRONT = 4;                          // facing front (down), neutral
+      const DIR = { right: 0, down: 4, left: 8, up: 9 };
+      const SPIN_SEQ = [DIR.right, DIR.down, DIR.left, DIR.up];  // one rotation
+      const SPIN_FRAME_MS = 115, SPIN_STEPS = 10;               // ~2.5 spins
+      let state, frame = 0, lastFrame = 0, x = START(), lastT = 0, spinCount = 0;
+
+      function goIdle() {
+        state = 'idle'; paint(FRONT);
+        bob.classList.add('is-idle');
+        if (hint) hint.style.display = '';
+      }
+      function startSpin(t) { state = 'spin'; spinCount = 0; lastFrame = t; paint(SPIN_SEQ[0]); }
+
+      function loop(t) {
+        if (!lastT) lastT = t;
+        const dt = (t - lastT) / 1000; lastT = t;
+        if (state === 'walk') {
+          const target = centerLeft();
+          const speed = Math.max(70, (target - START()) / 5.0);   // slow, dramatic ~5s walk-in
+          x += speed * dt;
+          if (t - lastFrame > 1000 / WALK_FPS) { frame = (frame + 1) % WALK.length; paint(WALK[frame]); lastFrame = t; }
+          if (x >= target) { x = target; wrap.style.left = centerLeft() + 'px'; startSpin(t); }
+          else wrap.style.left = Math.round(x) + 'px';
+        } else if (state === 'spin') {
+          wrap.style.left = centerLeft() + 'px';
+          if (t - lastFrame > SPIN_FRAME_MS) {
+            spinCount++;
+            if (spinCount >= SPIN_STEPS) goIdle();
+            else { paint(SPIN_SEQ[spinCount % SPIN_SEQ.length]); lastFrame = t; }
+          }
+        }
+        requestAnimationFrame(loop);
+      }
+
+      function init() {
+        bob.classList.remove('is-idle');
+        if (reduce) { x = centerLeft(); wrap.style.left = x + 'px'; goIdle(); return; }
+        x = START(); wrap.style.left = x + 'px';
+        state = 'walk'; frame = 0; paint(WALK[0]);
+        requestAnimationFrame(loop);
+      }
+      addEventListener('resize', () => { if (state === 'idle' || state === 'spin') { x = centerLeft(); wrap.style.left = x + 'px'; } });
+      window.RIZ_bobReplay = init;
+      init();
+    })();
+  </script>
+</body>
+</html>

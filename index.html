@@ -67,7 +67,8 @@
         // available years - add new years here as they're created
         const availableYears = [
             { year: 2024, label: "The Original" },
-            { year: 2025, label: "FY 24-25" }
+            { year: 2025, label: "FY 24-25" },
+            { year: 2026, label: "Rizumon" }
         ];
         
         // get the appropriate year based on whether birthday has passed
@@ -138,14 +139,14 @@
         function toggleNav() {
             const nav = document.getElementById('sideNav');
             const toggle = document.getElementById('navToggle');
-            
+
             nav.classList.toggle('collapsed');
             toggle.classList.toggle('collapsed');
         }
 
         function loadYear(year, event) {
             document.getElementById('contentFrame').src = `years/${year}/index.html`;
-            
+
             // only update active class if there are links to update
             const links = document.querySelectorAll('.year-link');
             if (links.length > 0) {
